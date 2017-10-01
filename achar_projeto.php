@@ -54,21 +54,34 @@
 
     <div class="container">
        <form class="form-inline" id="busca" action="achar_projeto.php" method="get">
-           <input type="search" class="form-control form-control-lg" placeholder="Digite tags" />
+           <input type="search" class="form-control form-control-lg" placeholder="Digite tags" name="buscaproj"/>
            <button type="submit" class="btn btn-lg btn-primary">Procurar</button>
       </form>
 
       <div class="cards row">
+	  
+<?php
+	$buscarprojeto=isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
+	if($buscarprojeto){
+		$sql=mysql_query("SELECT *FROM conect_ideias WHERE projeto LIKE '%".$buscarprojeto."%'");
+		$rows=mysql_num_rows($sql);
+		if($rows>0){
+			while($linha=mysql_fetch_array($sql)){
+				$nomeproj=$linha['nome'];
+				$descricaoproj=$linha['descricao'];
+?>
         <div class="col">
           <div class="card">
             <img src="./img/placeholder.jpg" alt="Placeholder image" class="card-img-top">
             <div class="card-body">
+			
               <h4 class="card-title">Nome do projeto</h4>
               <p class="card-text">Descrição breve e genérica do projeto para ocupar espaço</p>
               <a href="#" class="btn btn-primary">Ver detalhes</a>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card">
             <img src="./img/placeholder.jpg" alt="Placeholder image" class="card-img-top">
