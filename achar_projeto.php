@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+	$conexao=mysqli_connect("localhost", "root", "", "conect_ideias");
+?>
+<div style="color:red; background-color:white;">
+<?php
+	//verificar conexao
+	if(!$conexao){
+		echo "Erro de conexao com o Banco de Dados</br>".mysqli_connect_error();
+	}
+?>
+</div>
+
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
