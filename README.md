@@ -4,6 +4,17 @@ Aplicação web que junta estudantes para discutir e desenvolver projetos de eng
 ## Tarefas (Organizadas usando o Trello)
 https://trello.com/b/zRmhOg7H
 
+## Equipe
+- Kaique Borges
+- Lucas Maciel
+- Francisco Heronildo
+- Pedro Féo
+- João Victor Mattos
+- Geraldo Victor
+
+## Modelo Relacional do banco de dados
+https://imgur.com/DuXF9LT
+
 ## Requisitos
 ### Requisitos funcionais
 - [ ] O sistema deve prover um formulário de cadastro de usuários, com nome, e-mail, senha e uma descrição para mais detalhes. Essa descrição é opcional.
