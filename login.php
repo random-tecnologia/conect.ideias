@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Conect.Ideias | Achar projetos</title>
-
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-  </head>
-  <body>
-    <div class="container">
-      <form action="login.php" method="post" class="col-md-5">
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
-        </div>
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-            Me manter logado
-          </label>
-        </div>
-        <a href="#">Esqueci a senha</a><br>
-        <button type="submit" class="btn btn-primary">Entrar</button>
-        <a href="cadastro.php" class="btn btn-secondary">Cadstre-se</a>
-      </form>
-  </div>
-
-
-    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
-
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Conect.Ideias | Entrar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
+  <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
+</head>
+<body>
+  <img id="logo" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
+  <section class="container">
+    <h1>Entre em sua conta</h1>
+    <p>Ainda não tem conta? <a href="cadastro.php">Clique aqui e cadastre-se.</a></p>
+    <form action="" method="post">
+      <input type="text" name="email" placeholder="E-mail">
+      <input type="password" name="senha" placeholder="Senha">
+      <a id="esqueci-senha" href="esqueci_senha.php">Esqueci minha senha</a>
+      <input class="btn-primario" type="submit" name="submit" value="Entrar">
+    </form>
+  </section>
+</body>
 </html>
