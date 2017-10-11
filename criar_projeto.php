@@ -1,10 +1,6 @@
 <?php
 
-$conn = mysqli_connect("127.0.0.1", "root", "", "conect_ideias");
-
-	if (!$conn){ 
-		echo "Failed to connect to MySQL: " . mysqli_connect_error(); 
-	}
+require "db.php";
 
 	if(isset($_POST['submit'])){
 		$nome = $_POST['nome'];
@@ -14,16 +10,18 @@ $conn = mysqli_connect("127.0.0.1", "root", "", "conect_ideias");
 		$palavras_chave = $_POST['palavras_chave'];
 		$tipo_ajuda = $_POST['tipo_ajuda'];
 		$criado_em = "2017-02-23";
+
+		$consulta = "INSERT INTO projetos (nome, descricao, proximos_passos, quantidade_max, estado, palavras_chave, tipo_ajuda, criado_em, id_dono) VALUES ('$nome', '$descricao', '$proximos_passos',$quantidade_max, 1, '$palavras_chave', '$tipo_ajuda', '$criado_em',1)";
+
+	$result = mysqli_query($conn, $consulta);
+	if(!$result){
+		die('query failed');
+	}
 	}
 
 
 	
-	$consulta = "INSERT INTO projetos (nome, descricao, proximos_passos, quantidade_max, palavras_chave, tipo_ajuda, estado, criado_em, id_dono) VALUES ('sadfasdf', 'dasfdasdf', 'asdfasdfasdf',25 , 'sfgasdfasd', 'criacao', 1, 'asdfasd',1)";
-
-	$result = mysqli_query($conn, $consulta);
-	if($result){
-		die('query failed');
-	}
+	
 ?>
 
 
