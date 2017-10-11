@@ -2,11 +2,10 @@
 
 $login = $_POST['email'];
 $senha = MD5($_POST['senha']);
-$connect = mysql_connect('nome_do_servidor','nome_de_usuario','senha');
-$db = mysql_select_db('nome_do_banco_de_dados');
+$connect = mysqlI_connect('localhost','root','','conect_ideias');
 $query_select = "SELECT email FROM usuarios WHERE email = '$login'";
-$select = mysql_query($query_select,$connect);
-$array = mysql_fetch_array($select);
+$select = mysqli_query($connect,$query_select);
+$array = mysqli_fetch_array($select);
 $logarray = $array['email'];
 
   if($login == "" || $login == null){
@@ -20,7 +19,7 @@ $logarray = $array['email'];
       }
       else{
         $query = "INSERT INTO usuarios (email,senha) VALUES ('$login','$senha')";
-        $insert = mysql_query($query,$connect);
+        $insert = mysqli_query($connect,$query);
         
         if($insert){
           echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='formulario.php'</script>";
