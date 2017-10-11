@@ -1,6 +1,9 @@
 # conect.ideias
 Aplicação web que junta estudantes para discutir e desenvolver projetos de engenharia.
 
+## Cronograma (Gantter)
+https://drive.google.com/file/d/0B3RlcTeYl1N4a0VrRFNpOUlFazQ/view?usp=sharing
+
 ## Tarefas (Organizadas usando o Trello)
 https://trello.com/b/zRmhOg7H
 
