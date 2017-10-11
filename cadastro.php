@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Conect.Ideias | Achar projetos</title>
-
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-  </head>
-  <body>
-    <div class="container">
-      <form action="cadastro.php" method="post" class="col-md-5">
-        <div class="form-group">
-          <label for="email-cadastro">E-mail</label>
-          <input type="email" class="form-control" id="email-cadastro" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
-          <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu e-mail.</small>
-        </div>
-        <div class="form-group">
-          <label for="senha-cadastro">Escolha uma senha</label>
-          <input type="password" class="form-control" id="senha-cadastro" placeholder="Digite sua senha">
-        </div>
-        <button type="submit" class="btn btn-primary">Criar conta</button>
-      </form>
-  </div>
-
-
-    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
-
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Conect.Ideias | Cadastro</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
+  <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
+</head>
+<body>
+  <img id="logo" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
+  <section class="container container-cadastro">
+    <h1>Cadastre-se</h1>
+    <p>Já tem conta? <a href="login.php">Clique aqui para entrar.</a></p>
+    <form action="" method="post">
+      <input type="text" name="nome" placeholder="Nome">
+      <input type="text" name="email" placeholder="E-mail">
+      <input type="password" name="senha" placeholder="Senha">
+      <input class="btn-primario" type="submit" name="submit" value="Criar conta">
+    </form>
+  </section>
+</body>
 </html>
