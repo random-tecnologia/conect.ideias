@@ -14,11 +14,17 @@
 
 body {
 	height: 100%;
+	background-color: #f7f8f9;
 }
 
-#wrapper{
+.wrapper{
 	width: 960px;
 	margin: 0 auto;
+}
+
+#header {
+	width: 960px;
+	margin: 0 auto
 }
 
 .clearfix {
@@ -53,6 +59,96 @@ form input {
 	border-radius: 3px;
 	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
 	        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ////////////
+* — Navegação —
+///////////// */
+
+#navegacao {
+	background-color: white;
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+  width: 200px;
+  height: 43px;
+  display: inline-block;
+  margin-top: 19px;
+  float: left;
+}
+
+#navegacao ul {
+	display: inline-block;
+	float: left;
+	margin-left: 40px;
+}
+
+#navegacao ul li {
+	list-style-type: none;
+	display: inline-block;
+	padding-left: 40px;
+	line-height: 80px;
+}
+
+#navegacao a {
+	text-decoration: none;
+	font-size: 14px;
+	color: #191919;
+}
+
+ul #destaque-azul {
+	color: #10bfe8;
+}
+
+#navegacao .selecionado {
+	color: #999;
+}
+
+#marcador_notificação {
+	display: block;
+  	border-radius: 50%;
+  	background-color: rgb(221, 52, 52);
+  	width: 5px;
+  	height: 5px;
+}
+
+
+#separador {
+  background-color: rgb(242, 242, 242);
+  width: 1px;
+  height: 80px;
+  display: inline-block;
+  float: left;
+}
+
+
+#perfil {
+	display: inline-block;
+	float: right;
+}
+
+#avatar {
+	float: left;
+	margin: 28px 10px 0 25px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+}
+
+#perfil span {
+	font-size: 14px;
+	float: left;
+	margin-top: 30px;
+}
+
+#seta {
+	float: right;
+	margin-top: 37px;
+	margin-left: 12px;
 }
 
 /* /////////
