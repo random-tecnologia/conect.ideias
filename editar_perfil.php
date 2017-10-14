@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Conect.Ideias | Entrar</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
@@ -17,13 +17,16 @@
         <li><a href="meus_projetos.php">Meus projetos</a></li>
         <li><a href="notificacoes.php">Notificações</a></li>
       </ul>
-      <div id="perfil">
+      <div id="perfil" tabindex="0" class="onclick-menu">
         <div id="separador"></div>
-        <a href="perfil.php">
-          <img id="avatar" src="img/placeholder_avatar.png" alt="Avatar">
+          <img id="avatar" src="img/avatar_kaique.jpg" alt="Avatar">
           <span id="nome">Roberto</span>
-        </a>
         <img id="seta" src="img/icone.png">
+        <ul id="dropdown" class="onclick-menu-content">
+          <li><a href="perfil.php">Meu perfil</a></li>
+          <li><a href="conta.php">Minha conta</a></li>
+          <li><a href="sair.php">Sair</a></li>
+        </ul>
       </div>
   </nav>
 </body>
