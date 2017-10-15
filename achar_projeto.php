@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<?php
-	//Iniciar conexao com o BD
-	$conexao=mysqli_connect("localhost", "root", "", "conect_ideias");
-?>
 <div style="color:red; background-color:white;">
-<?php
+<?php include_once("conexao_bd.php");
 	//Verificar conexao
 	if(!$conexao){
 		echo "Erro de conexao com o Banco de Dados</br>".mysqli_connect_error();
 	}
 ?>
 </div>
+<?php
+	//Verificar se está sendo passado na URL a página atual, senao é atribuido a pagina 
+	$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+	
+	$buscar_projeto=isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
+	
+	
+		//Selecionar os projetos
+		$resultado_proj=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
+		
+		//Contar o total de projetos encontrados
+		$row=mysqli_num_rows($resultado_proj);
+		$itens_encontrados=$row;
+		
+		//Quantidade de projetos por pagina
+		$num_itens_pagina=5;
+		
+		//calcular o numero de paginas necessarias
+		$total_paginas=ceil($itens_encontrados/$num_itens_pagina);
+		//calcular o inicio da visualização
+		$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
+		
+		
+		//Selecionar os cursos que serão apresentados na pagina atual
+		$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
+?>
 
 <html lang="pt-br">
   <head>
@@ -19,7 +42,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Conect.Ideias | Achar projetos</title>
-
+	<style>
+		.menu-paginacao{
+			text-align:center;
+		}
+		.menu-paginacao ul li{
+			display: inline-block;
+		}
+	</style>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
   </head>
@@ -64,19 +94,15 @@
       <div class="cards row">	  
 <?php
 	//*Buscar projetos
-	$buscar_projeto=isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
-	if($buscar_projeto){
-		$resultado_proj=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
-		$row=mysqli_num_rows($resultado_proj);
 		if($row==0){
 			echo "<div style='text-align:center; color:white; width:100%'>Nenhum Resultado encontrado!!!</div>";
 		} else{
 		
-			while($linha=mysqli_fetch_array($resultado_proj)){
+			while($linha=mysqli_fetch_array($resultado_proj_pagina)){
 				$nome_proj=$linha['nome'];
 				$descricao_proj=$linha['descricao'];
 ?>
-        <div class="col">nad
+        <div class="col">
           <div class="card">
             <img src="./img/placeholder.jpg" alt="Placeholder image" class="card-img-top">
             <div class="card-body">
@@ -96,13 +122,61 @@
           </div>
         </div>
 <?php
+			
 			}
 		}
-	}
-	//*Fim da Busca de projetos
+	
 ?>    
       </div>
+<?php
+	//Verificar a pagina anterior e posterior
+	$pagina_anterior = $pagina - 1;
+	$pagina_posterior = $pagina + 1;
+?>
+		<nav class="menu-paginacao">
+			<ul>
+				<li>
+<?php
+	if($pagina_anterior!=0){
+?>
+		
+		<a href="achar_projeto.php?pagina=<?php echo $pagina_anterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+			<span aria-hidden="true">&laquo;</span>
+		</a>
+<?php
+	}else{
+?>
+		<span aria-hidden="true">&laquo;</span>
+<?php
+	}
+?>
+				</li>
+<?php
+	//Apresentar paginação
+	for($i=1; $i<$total_paginas+1;$i++){
+?>
+		<li><a href="achar_projeto.php?pagina=<?php echo $i; ?>&buscaproj=<?php echo $buscar_projeto; ?>"><?php echo $i; ?></a></li>
+<?php }
+?>		
 
+
+				<li>
+<?php
+	if($pagina_posterior <= $total_paginas){ 
+?>
+					<a href="achar_projeto.php?pagina=<?php echo $pagina_posterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+<?php 
+	}else{ 
+?>
+					<span aria-hidden="true">&raquo;</span>
+<?php }  ?>
+				</li>
+				
+				
+			</ul>
+		</nav>
     </div>
     <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>

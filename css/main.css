@@ -85,6 +85,16 @@ form input {
 	margin: 0;
 	padding: 0;
 }
+/*///////////////////////////////
+*- Numero de Paginas/Paginação/-*
+//////////////////////////////*/
+.menu-paginacao{
+			text-align:center;
+		}
+.menu-paginacao ul li{
+	display: inline-block;
+			
+}
 
 /* /////////
 * — Avisos —
