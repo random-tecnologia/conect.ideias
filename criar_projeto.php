@@ -17,8 +17,10 @@ require "db.php";
 	if(!$result){
 		die('query failed');
 	}
-	}
 
+	header('Location: ver_projeto_depois.php');
+	exit();
+	}
 
 	
 	
