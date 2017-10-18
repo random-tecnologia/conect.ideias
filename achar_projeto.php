@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 	//Iniciar conexao com o BD
+  include("auth.php");
 	$conexao=mysqli_connect("localhost", "root", "", "conect_ideias");
 ?>
 <div style="color:red; background-color:white;">
