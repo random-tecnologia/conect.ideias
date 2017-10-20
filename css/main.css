@@ -121,7 +121,6 @@ form input {
   	height: 5px;
 }
 
-
 #separador {
   background-color: rgb(242, 242, 242);
   width: 1px;
@@ -129,7 +128,6 @@ form input {
   display: inline-block;
   float: left;
 }
-
 
 #perfil {
 	display: inline-block;
@@ -156,6 +154,48 @@ form input {
 	float: right;
 	margin-top: 37px;
 	margin-left: 12px;
+}
+
+#dropdown {
+	transition: .2s ease-out;
+	border-radius: 0 0 3px 3px;
+	margin-top: -0px;
+	float: right;
+	width: 158px;
+	margin-right: -20px;
+	background-color: white;
+	height: 112px;
+	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+	        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.esconder {
+	opacity: 0;
+}
+
+#dropdown:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+#dropdown ul {
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+#dropdown ul li {
+	display: block;
+	padding: 0;
+	margin: 0;
+	line-height: 30px;
+}
+
+#unifica-menu {
+	width: 158px;
+	background-color: white;
+	height: 5px;
+	float: right;
+	margin-top: -5px;
 }
 
 /* /////////

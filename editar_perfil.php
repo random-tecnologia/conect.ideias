@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Conect.Ideias | Entrar</title>
-  <link rel="stylesheet" href="css/main.css">@
+  <title>Conect.Ideias | Editar perfil</title>
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
@@ -17,17 +17,28 @@
         <li><a href="meus_projetos.php">Meus projetos</a></li>
         <li><a href="notificacoes.php">Notificações</a></li>
       </ul>
-      <div id="perfil" tabindex="0" class="onclick-menu">
+      <div id="perfil" onclick="toggleDropdown();">
         <div id="separador"></div>
           <img id="avatar" src="img/avatar_kaique.jpg" alt="Avatar">
           <span id="nome">Roberto</span>
         <img id="seta" src="img/icone.png">
-        <ul id="dropdown" class="onclick-menu-content">
+      </div>
+      <div id="dropdown" class="esconder">
+        <div id="unifica-menu"></div>
+        <ul>
           <li><a href="perfil.php">Meu perfil</a></li>
           <li><a href="conta.php">Minha conta</a></li>
           <li><a href="sair.php">Sair</a></li>
         </ul>
       </div>
   </nav>
+
+  <script type="text/javascript">
+    function toggleDropdown(){
+      var dropdown = document.getElementById("dropdown");
+      dropdown.classList.toggle("esconder");
+    };
+  </script>
+
 </body>
 </html>
