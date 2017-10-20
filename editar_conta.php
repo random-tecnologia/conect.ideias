@@ -1,18 +1,8 @@
-<?php
-  require "_parsedown.php";
-  $Parsedown = new Parsedown();
-
-  if (isset($_POST["submit"])) {
-    $descricao = $Parsedown->text($_POST["descricao"]);
-  }
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Conect.Ideias | Editar perfil</title>
+  <title>Conect.Ideias | Editar conta</title>
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
@@ -43,22 +33,17 @@
       </div>
   </nav>
 
-  <div id="titulo-pagina"><h1>Editar perfil</h1></div>
+  <div id="titulo-pagina"><h1>Editar conta</h1></div>
   <div class="wrapper">
     <section class="container container-editar">
-      <form id="formulario-editar" action="editar_perfil.php" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" placeholder="" required>
-        <label for="descricao">
-          Descrição
-          <p>Dê mais detalhes sobre você para que possam te escolher.</p>
-        </label>
-        <textarea id="descricao" name="descricao" required></textarea>
-        <p id="dica">Você pode estilizar seu texto usando markdown, para saber mais sobre markdown <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">clique aqui</a>.</p>
-        <label for="avatar">Avatar</label>
-        <input type="file" name="avatar" class="inputfile" required>
-        <label for="telefone">Telefone</label>
-        <input type="text" name="telefone" placeholder="" required="">
+      <form id="formulario-editar" action="editar_conta.php" method="post">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" placeholder="" required>
+        <label for="senha_atual">Senha atual</label>
+        <input type="password" name="senha_atual" placeholder="" required>
+        <label for="nova_senha">Nova senha</label>
+        <input type="password" name="nova_senha" placeholder="" required>
+        <a href="#" id="excluir-conta">Excluir conta</a>
         <input class="btn-primario" type="submit" name="submit" value="Salvar">
         <div class="clearfix"></div>
       </form>

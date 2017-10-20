@@ -25,7 +25,7 @@
         <input type="password" name="senha" placeholder="Senha" required>
         <a id="link-ajuda" href="esqueci_senha.php">Esqueci a senha</a>
         <input class="btn-primario" type="submit" name="submit" value="Entrar">
-        <div  class="clearfix"></div>
+        <div class="clearfix"></div>
       </form>
     </section>
   </div>
