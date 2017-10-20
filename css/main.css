@@ -347,9 +347,9 @@ form input, textarea {
 	float: right;
 }
 
-/* / / / / / / / / / / / / / / /
-/ /  PÁGINA: Editar perfil / /
-/ / / / / / / / / / / / / / / */
+/* / / / / / / / / / / / / / / / / / / / / / /
+/ /  PÁGINAS: Editar perfil / Editar conta / /
+/ / / / / / / / / / / / / / / / / / / / / */
 
 .container-editar {
 	width: 820px;
@@ -376,6 +376,14 @@ form input, textarea {
 	margin-bottom: 35px;
 	display: inline-block;
 	padding: 20px;
+}
+
+#formulario-editar .senha {
+	font-size: 18px;
+}
+
+#formulario-editar #excluir-conta {
+	font-size: 14px;
 }
 
 #formulario-editar textarea {
