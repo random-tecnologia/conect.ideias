@@ -16,7 +16,7 @@
           <li><a id="destaque-azul" href="criar_projeto.php">Criar projeto</a></li>
           <li><a href="achar_projeto.php" class="selecionado">Achar projeto</a></li>
           <li><a href="meus_projetos.php">Meus projetos</a></li>
-          <li><a href="notificacoes.php">Notificações</a></li>
+          <li><a id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
         </ul>
         <div id="perfil" onclick="toggleDropdown();">
           <div id="separador"></div>
