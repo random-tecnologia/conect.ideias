@@ -1,6 +1,6 @@
 <?php 
     $titulo_pagina = "Achar projeto";
-    require "_header.php"
+    require "_header.php";
 ?>
 
 <form id="formulario-busca" action="achar_projeto.php" method="get">
@@ -10,32 +10,25 @@
 </form>
 
 <?php
-//Iniciar conexao com o BD
-$conexao = mysqli_connect("localhost", "root", "", "conect_ideias");
-
-//Verificar conexao
-if(!$conexao){
-    echo "<div style=\"color:red; background-color:white;\">Erro de conexao com o Banco de Dados</br>".mysqli_connect_error()."</div";
-}
+require "db.php";
 
 //*Buscar projetos
 $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
 if($buscar_projeto){
     $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
-    $row=mysqli_num_rows($resultado_proj);
+    $row = mysqli_num_rows($resultado_proj);
     if($row==0){
-        echo "<div style='text-align:center; color:white; width:100%'>Nenhum Resultado encontrado!!!</div>";
-} else {
-  
-    while($linha = mysqli_fetch_array($resultado_proj)){
-      $nome_proj = $linha['nome'];
-      $descricao_proj = $linha['descricao'];
+        echo "<div style='text-align:center; color:white; width:100%'>Nenhum resultado encontrado!!!</div>";
+    } else {  
+        while($linha = mysqli_fetch_array($resultado_proj)){
+          $nome_proj = $linha['nome'];
+          $descricao_proj = $linha['descricao'];
 ?>
 
 <div class="wrapper">
     <section id="heading">
         <h2>Resultados</h2>
-        <span>Sua busca retornou 234 resultados</span>
+        <span>Sua busca retornou <?= $row ?> resultado<?= ($row > 1) ? "s" : ""; ?></span>
         <div class="filtro">
           <ul>
             <li><a href="#" class="selecionado">Todos</a></li>
