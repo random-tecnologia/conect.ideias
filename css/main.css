@@ -581,7 +581,7 @@ form input, textarea {
 
 #resultados .card a {
 	text-decoration: none;
-	color: #494848
+	color: #494848;
 }
 
 .card .card-titulo {
@@ -630,4 +630,42 @@ form input, textarea {
 	margin: 0 auto;
 	margin-top: 50px;
 	padding: 15px 35px;
+}
+
+/* / / / / / / / / / / / / / /
+/ /  PÁGINA: Notificações / /
+/ / / / / / / / / / / / / */
+
+.notificacao {
+	display: grid;
+	grid-template-areas: "texto acao";
+	border-bottom: 1px solid #f4f4f4;
+	grid-template-columns: auto 92px;
+}
+
+.notificacao .texto {
+	text-decoration: none;
+	color: #494848;
+	padding: 50px 40px;
+	grid-area: texto;
+}
+
+.notificacao .texto strong {
+	color: #494848;
+}
+
+.notificacao .acao {
+	grid-area: acao;
+	align-self: center;
+}
+
+.notificacao .acao span {
+	margin-right: 40px;
+	float: right;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: url(../img/excluir.png);
+	background-size: cover;
+	background-repeat: no-repeat;
 }

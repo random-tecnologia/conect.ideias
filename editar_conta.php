@@ -1,6 +1,6 @@
 <?php 
 $titulo_pagina = "Editar conta";
-require "_header.php"
+require "_header.php";
 ?>
 
   <div id="titulo-pagina"><h1><?= $titulo_pagina; ?></h1></div>

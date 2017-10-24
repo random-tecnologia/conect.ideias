@@ -1,6 +1,6 @@
 <?php 
 $titulo_pagina = "Roberto Lopes";
-require "_header.php"
+require "_header.php";
 ?>
 
 <div class="wrapper">
