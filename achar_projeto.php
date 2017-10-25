@@ -19,14 +19,10 @@ if($buscar_projeto){
     $row = mysqli_num_rows($resultado_proj);
     if($row==0){
         echo "<div style='text-align:center; color:white; width:100%'>Nenhum resultado encontrado!!!</div>";
-    } else {  
-        while($linha = mysqli_fetch_array($resultado_proj)){
-          $nome_proj = $linha['nome'];
-          $descricao_proj = $linha['descricao'];
+    } else {
 ?>
-
-<div class="wrapper">
-    <section id="heading">
+  <div class="wrapper">
+      <section class="heading">
         <h2>Resultados</h2>
         <span>Sua busca retornou <?= $row ?> resultado<?= ($row > 1) ? "s" : ""; ?></span>
         <div class="filtro">
@@ -36,9 +32,13 @@ if($buscar_projeto){
             <li><a href="#">Consultoria</a></li>
           </ul>
         </div>
-    </section>
-
-    <section id="resultados">
+      </section>
+      <section id="resultados">
+  <?php
+        while($linha = mysqli_fetch_array($resultado_proj)){
+          $nome_proj = $linha['nome'];
+          $descricao_proj = $linha['descricao'];
+?>
         <article class="container card">
             <h3 class="card-titulo">
               <a href="ver_projeto.php"><?= $nome_proj ?></a>
@@ -53,10 +53,13 @@ if($buscar_projeto){
           </div>
           <a id="saiba-mais" href="ver_projeto.php">SAIBA MAIS</a>
         </article>
-    </section>
+    
 
 <?php
       }
+?>
+        </section>
+<?php
     }
   }
   //*Fim da Busca de projetos

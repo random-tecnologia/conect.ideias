@@ -200,6 +200,7 @@ form input, textarea {
 	height: 112px;
 	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
 	        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
+    margin-left: 15px;
 }
 
 .esconder {
@@ -519,17 +520,17 @@ form input, textarea {
 	        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-#heading {
+.heading {
 	margin-bottom: 40px;
 }
 
-#heading h2 {
+.heading h2 {
 	font-size: 18px;
 	font-weight: 400;
 	color: #494848;
 }
 
-#heading span {
+.heading span {
 	font-size: 12px;
 	font-style: italic;
 	color: #a49d9d;
@@ -556,8 +557,12 @@ form input, textarea {
 .filtro ul li a {
 	text-decoration: none;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 12px;
 	color: #2a2a2a;
+}
+
+#filtro-meus-projetos {
+	margin-top: -23px;
 }
 
 #resultados {
@@ -613,8 +618,7 @@ form input, textarea {
 
 .card #saiba-mais {
 	grid-area: saiba-mais;
-	font-size: 14px;
-	margin-top: -2px;
+	font-size: 12px;
 	text-align: right;
 }
 
