@@ -65,6 +65,7 @@ form input, textarea {
 .container-texto {
 	margin-top: 60px;
 	background-color: white;
+	padding-bottom: 50px;
 }
 
 .container-texto h2 {
@@ -80,6 +81,7 @@ form input, textarea {
 	font-size: 20px;
 	line-height: 1.750em;
 	text-indent: 40px;
+	color: #434343;
 }
 
 .container-texto p + p {
@@ -91,6 +93,7 @@ form input, textarea {
 	font-family: 'Lato', sans-serif;
 	font-size: 20px;
 	line-height: 1.750em;
+	color: #434343;
 }
 
 /* ////////////
