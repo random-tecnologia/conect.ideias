@@ -13,11 +13,19 @@
 require "db.php";
 
 //*Buscar projetos
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
 if($buscar_projeto){
     $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
     $row = mysqli_num_rows($resultado_proj);
-    if($row==0){
+	
+	$num_itens_pagina=5;
+	$contador_itens=0;
+	$total_paginas=ceil($row/$num_itens_pagina);
+	$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
+	$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
+    
+	if($row==0){
         echo "<div style='text-align:center; color:white; width:100%'>Nenhum resultado encontrado!!!</div>";
     } else {
 ?>
@@ -38,20 +46,21 @@ if($buscar_projeto){
         while($linha = mysqli_fetch_array($resultado_proj)){
           $nome_proj = $linha['nome'];
           $descricao_proj = $linha['descricao'];
+		  $id_proj=$linha['id'];
 ?>
         <article class="container card">
             <h3 class="card-titulo">
-              <a href="ver_projeto.php"><?= $nome_proj ?></a>
+              <a href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>"><?= $nome_proj ?></a>
             </h3>
             <p class="card-descricao">
-              <a href="ver_projeto.php"><?= $descricao_proj ?></a>
+              <a href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>"><?= $descricao_proj ?></a>
             </p>
 
           <div id="tags">
             <span><a href="#1">Criação</a></span>
             <span><a href="#2">Consultoria</a></span>
           </div>
-          <a id="saiba-mais" href="ver_projeto.php">SAIBA MAIS</a>
+          <a id="saiba-mais" href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>">SAIBA MAIS</a>
         </article>
     
 
