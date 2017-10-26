@@ -15,11 +15,12 @@ require "db.php";
 //*Buscar projetos
 $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
-if($buscar_projeto){
+
     $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
     $row = mysqli_num_rows($resultado_proj);
 	
-	$num_itens_pagina=5;
+	//Limitar itens(Projetos) por pagina
+	$num_itens_pagina=18;
 	$contador_itens=0;
 	$total_paginas=ceil($row/$num_itens_pagina);
 	$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
@@ -43,7 +44,7 @@ if($buscar_projeto){
       </section>
       <section id="resultados">
   <?php
-        while($linha = mysqli_fetch_array($resultado_proj)){
+        while($linha = mysqli_fetch_array($resultado_proj_pagina)){
           $nome_proj = $linha['nome'];
           $descricao_proj = $linha['descricao'];
 		  $id_proj=$linha['id'];
@@ -70,8 +71,52 @@ if($buscar_projeto){
         </section>
 <?php
     }
-  }
+  
   //*Fim da Busca de projetos
+	$pagina_anterior = $pagina - 1;
+	$pagina_posterior = $pagina + 1;
 ?>
-
+		<?php if($total_paginas){?>
+		<nav class="menu-paginacao">
+			<ul>
+			
+				<li>
+					<?php 
+						//Mostrar botao pagina anterior
+						if($pagina_anterior!=0){ 
+					?>
+						<a href="achar_projeto.php?pagina=<?php echo $pagina_anterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+							<span class="true" aria-hidden="true">&laquo;</span>
+						</a>
+					<?php }else{ ?>
+						<span class="false" aria-hidden="true">&laquo;</span>
+					<?php } ?>
+				</li>
+				
+				<?php
+				//Mostrar numero de paginas
+					for($i=1; $i<$total_paginas+1;$i++){ ?>
+				<li <?php if($i==$pagina){echo 'class="pagina-atual"';}?>>
+					<a  href="achar_projeto.php?pagina=<?php echo $i; ?>&buscaproj=<?php echo $buscar_projeto; ?>"><?php echo $i; ?></a>
+				</li>
+				
+				<?php } ?>	
+				<li>
+					<?php
+						//Mostrar pagina posterior
+						if($pagina_posterior <= $total_paginas){ 
+					?>
+					<a href="achar_projeto.php?pagina=<?php echo $pagina_posterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+						<span class="true" aria-hidden="true">&raquo;</span>
+					</a>
+					<?php 
+						}else{ 
+					?>
+						<span class="false" aria-hidden="true">&raquo;</span>
+					<?php }  ?>
+				</li>
+			</ul>
+		</nav>
+		<?php } ?>
+					
 <?php require "_footer.php" ?>
