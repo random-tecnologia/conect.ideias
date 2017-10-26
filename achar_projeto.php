@@ -16,7 +16,7 @@ require "db.php";
 $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
 
-    $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%'");
+    $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%'");
     $row = mysqli_num_rows($resultado_proj);
 	
 	//Limitar itens(Projetos) por pagina
@@ -24,7 +24,7 @@ $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
 	$contador_itens=0;
 	$total_paginas=ceil($row/$num_itens_pagina);
 	$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
-	$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
+	$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
     
 	if($row==0){
         echo "<div style='text-align:center; color:white; width:100%'>Nenhum resultado encontrado!!!</div>";
