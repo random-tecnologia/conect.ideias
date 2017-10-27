@@ -13,21 +13,32 @@
 require "db.php";
 
 //*Buscar projetos
-$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
-$buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
-
-    $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%'");
-    $row = mysqli_num_rows($resultado_proj);
+	$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+	$buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
+	$filtro_proj=(isset($_GET['filtro']))?($_GET['filtro']):"todos";
+    $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')");
+    
+	
 	
 	//Limitar itens(Projetos) por pagina
-	$num_itens_pagina=18;
-	$contador_itens=0;
-	$total_paginas=ceil($row/$num_itens_pagina);
+	$num_itens_pagina=1;
 	$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
-	$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
-    
-	if($row==0){
-        echo "<div style='text-align:center; color:white; width:100%'>Nenhum resultado encontrado!!!</div>";
+	
+	//filtragem de resultados encontrados
+	if($filtro_proj=="todos"){
+		$row = mysqli_num_rows($resultado_proj);
+		$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
+	}else{
+		$verificar_filtro=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%')");
+		$row=mysqli_num_rows($verificar_filtro);
+		$resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%') limit $inicio, $num_itens_pagina");
+	}
+	$total_paginas=ceil($row/$num_itens_pagina);
+	
+	
+    //definir numero de resultados encontrados incluindo o filtro
+	if(isset($_GET['buscaproj'])==""){
+		
     } else {
 ?>
   <div class="wrapper">
@@ -36,16 +47,18 @@ $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
         <span>Sua busca retornou <?= $row ?> resultado<?= ($row > 1) ? "s" : ""; ?></span>
         <div class="filtro">
           <ul>
-            <li><a href="#" class="selecionado">Todos</a></li>
-            <li><a href="#">Criação</a></li>
-            <li><a href="#">Consultoria</a></li>
+            <li><a href="achar_projeto.php?buscaproj=<?php echo $buscar_projeto; ?>&filtro=todos" <?php if($filtro_proj=="todos"){echo 'class="selecionado"';}?> >Todos</a></li>
+            <li><a href="achar_projeto.php?buscaproj=<?php echo $buscar_projeto; ?>&filtro=criação" <?php if($filtro_proj=="criação"){echo 'class="selecionado"';}?> >Criação</a></li>
+            <li><a href="achar_projeto.php?buscaproj=<?php echo $buscar_projeto; ?>&filtro=consultoria" <?php if($filtro_proj=="consultoria"){echo 'class="selecionado"';}?>>Consultoria</a></li>
           </ul>
         </div>
       </section>
       <section id="resultados">
   <?php
-        while($linha = mysqli_fetch_array($resultado_proj_pagina)){
-          $nome_proj = $linha['nome'];
+		
+		//procurar busca no banco de dados e filtragem simples pelos botoes "criação e consultoria".
+        while(($linha = mysqli_fetch_array($resultado_proj_pagina))){
+		  $nome_proj = $linha['nome'];
           $descricao_proj = $linha['descricao'];
 		  $id_proj=$linha['id'];
 ?>
@@ -76,7 +89,7 @@ $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
 	$pagina_anterior = $pagina - 1;
 	$pagina_posterior = $pagina + 1;
 ?>
-		<?php if($total_paginas){?>
+		<?php if(isset($_GET['buscaproj'])&&$total_paginas){?>
 		<nav class="menu-paginacao">
 			<ul>
 			
