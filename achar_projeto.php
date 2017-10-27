@@ -21,7 +21,7 @@ require "db.php";
 	
 	
 	//Limitar itens(Projetos) por pagina
-	$num_itens_pagina=1;
+	$num_itens_pagina=18;
 	$inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
 	
 	//filtragem de resultados encontrados
@@ -98,7 +98,7 @@ require "db.php";
 						//Mostrar botao pagina anterior
 						if($pagina_anterior!=0){ 
 					?>
-						<a href="achar_projeto.php?pagina=<?php echo $pagina_anterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+						<a href="achar_projeto.php?pagina=<?php echo $pagina_anterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>&filtro=<?php echo $filtro_proj;?>" aria-label="Previous">
 							<span class="true" aria-hidden="true">&laquo;</span>
 						</a>
 					<?php }else{ ?>
@@ -110,7 +110,7 @@ require "db.php";
 				//Mostrar numero de paginas
 					for($i=1; $i<$total_paginas+1;$i++){ ?>
 				<li <?php if($i==$pagina){echo 'class="pagina-atual"';}?>>
-					<a  href="achar_projeto.php?pagina=<?php echo $i; ?>&buscaproj=<?php echo $buscar_projeto; ?>"><?php echo $i; ?></a>
+					<a  href="achar_projeto.php?pagina=<?php echo $i; ?>&buscaproj=<?php echo $buscar_projeto; ?>&filtro=<?php echo $filtro_proj;?>"><?php echo $i; ?></a>
 				</li>
 				
 				<?php } ?>	
@@ -119,7 +119,7 @@ require "db.php";
 						//Mostrar pagina posterior
 						if($pagina_posterior <= $total_paginas){ 
 					?>
-					<a href="achar_projeto.php?pagina=<?php echo $pagina_posterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>" aria-label="Previous">
+					<a href="achar_projeto.php?pagina=<?php echo $pagina_posterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>&filtro=<?php echo $filtro_proj;?>" aria-label="Previous">
 						<span class="true" aria-hidden="true">&raquo;</span>
 					</a>
 					<?php 
