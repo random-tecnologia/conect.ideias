@@ -10,8 +10,6 @@ CREATE TABLE notificacoes (
     id_usuario int(11) NOT NULL,
     id_projeto int(11) NOT NULL,
     tipo varchar(15) NOT NULL,
-    UNIQUE INDEX id_usuario (id_usuario),
-    UNIQUE INDEX id_projeto (id_projeto),
     CONSTRAINT notificacoes_pk PRIMARY KEY (id)
 ) ENGINE InnoDB CHARACTER SET latin1;
 
@@ -38,8 +36,6 @@ CREATE TABLE solicitacoes (
     id_usuario int(11) NOT NULL,
     id_projeto int(11) NOT NULL,
     tipo_ajuda varchar(25) NOT NULL,
-    UNIQUE INDEX id_usuario (id_usuario),
-    UNIQUE INDEX id_projeto (id_projeto),
     CONSTRAINT solicitacoes_pk PRIMARY KEY (id)
 ) ENGINE InnoDB CHARACTER SET latin1;
 
@@ -61,8 +57,6 @@ CREATE TABLE usuarios_projetos (
     id_usuario int(11) NOT NULL,
     id_projeto int(11) NOT NULL,
     tipo_ajuda varchar(25) NOT NULL,
-    UNIQUE INDEX id_usuario (id_usuario),
-    UNIQUE INDEX id_projeto (id_projeto),
     CONSTRAINT usuarios_projetos_pk PRIMARY KEY (id)
 ) ENGINE InnoDB CHARACTER SET latin1;
 

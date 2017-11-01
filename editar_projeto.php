@@ -2,15 +2,19 @@
 
 require 'db.php';
 
+session_start();
 
+if(isset($_GET['id'])?$_GET['id']:$_POST['id']){
 $id = isset($_GET['id'])?$_GET['id']:$_POST['id'];
 
 if(isset($_POST['submit'])){
-		
+
 	$nome = $_POST['nome'];
 	$descricao = $_POST['descricao'];
 	$proximos_passos = $_POST['proximos_passos'];
+	$quantidade_max = $_POST['quantidade_max'];
 	$palavras_chave = $_POST['palavras_chave'];
+	$tipo_ajuda = $_POST['tipo_ajuda'];
 
 	$consulta = "UPDATE projetos SET nome='{$nome}',descricao='{$descricao}',proximos_passos='{$proximos_passos}',palavras_chave='{$palavras_chave}' WHERE id = {$id} "; 
 	
@@ -20,9 +24,23 @@ if(isset($_POST['submit'])){
 		die('query failed');
 		}
 
+	$consulta_2 = "SELECT id FROM projetos WHERE nome = '$nome' and descricao = '$descricao'and proximos_passos = '$proximos_passos' and quantidade_max = '$quantidade_max'";
+	$result_2 = mysqli_query($conn,$consulta_2);
+	if(!$result_2){
+		die('Query failed');
+	}
+
+	while($row = mysqli_fetch_assoc($result_2)){
+   $id = $row['id']; 
+}
+
+echo "<script>location.href='ver_projeto.php?id=$id';</script>";
 
 
-
+}
+}else {
+	header('Location: ler_meus_projetos.php');
+	exit();
 }
 
 
@@ -80,18 +98,22 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
+		
 	<form method="post" action="editar_projeto.php">
-		<input type="text" name="nome" required><br/>
-		<textarea name="descricao" required></textarea><br/>
+		<input type="text" name="nome" value="<?=$nome?>" required><br/>
+		<textarea name="descricao" required><?=$descricao?></textarea><br/>
 		<textarea name="proximos_passos" required></textarea><br/>
+		<input type="number" name="quantidade_max" required><br/>
 		<input type="text" name="palavras_chave" required><br/>
+		<select name="tipo_ajuda" required>
+			<option value="todos">Todos</option>
+			<option value="criacao" selected>Criação</option>
+			<option value="consultoria">Consultoria</option>
+		</select>
 		<input type="hidden" name="id" value="<?php echo $id?>">
-		<input type="submit" name="submit" value="Atualizar">
-
-		
-		
-
+		<input type="submit" name="submit" value="Enviar">
 	</form>
+
 <div>	
 	<!-- Trigger/Open The Modal -->
 	<button id="myBtn">Deletar Projeto</button>
@@ -105,8 +127,8 @@ if(isset($_POST['submit'])){
     	<p>Tem certeza Que deseja deletar esse projeto?</p>
     <?php  
 
-		echo "<a href=\"delete_projeto.php?id=$id\">Sim</a></br>";
-		echo "<a href=\"editar_projeto.php?id=$id\">Nao</a>"; 
+		echo "<a href=\"delete_meu_projeto.php?id=$id\">Sim</a></br>";
+		echo "<a href='#' id='nao'>Nao</a>"; 
     
     ?>
    
@@ -121,9 +143,30 @@ if(isset($_POST['submit'])){
 </div>
 <div>
 	<?php 
-	echo "<a href=\"arquivar_projeto.php?id=$id\">Arquivar projeto</a>";
+	$id = $_GET['id'];
+	$consulta_arquivar = "SELECT estado FROM projetos WHERE id= $id";
+	$result_arquivar = mysqli_query($conn,$consulta_arquivar);
+	if(!$result_arquivar){
+		die('query failed');
+	}
+
+	while ($row_arquivar = mysqli_fetch_assoc($result_arquivar)) {
+		$estado = $row_arquivar['estado'];
+
+		if($estado == 1){
+			echo "<a href=\"arquivar_meu_projeto.php?id=$id\">Arquivar projeto</a>";
+		}elseif ($estado == 0) {
+			echo "<a href=\"desarquivar_meu_projeto.php?id=$id\">Desarquivar projeto</a>";		
+		}	
+
+
+	}
+
+	
 
 	?>
+
+
 </div>
 
 
@@ -133,6 +176,9 @@ var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
+
+// Get the button that opens the modal
+var nao = document.getElementById("nao");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -144,6 +190,11 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+nao.onclick = function() {
     modal.style.display = "none";
 }
 

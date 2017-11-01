@@ -5,7 +5,7 @@ $consulta = "SELECT id FROM projetos";
 
     $result = mysqli_query($conn, $consulta);
     if(!$result){
-        die('query failed');
+        die('ERROR Volte Para A Pagina Principal');
     }
 
 while($row = mysqli_fetch_assoc($result)){
@@ -13,7 +13,7 @@ while($row = mysqli_fetch_assoc($result)){
 }
 echo "<script>location.href='ver_projeto.php?id=$id';</script>";
 
- //header('Location: ver_projeto.php?id=27');
+ //header('Location: ver_projeto.php?id=$id');
 //  exit();
 
 
