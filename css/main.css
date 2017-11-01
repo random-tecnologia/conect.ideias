@@ -110,11 +110,12 @@ form input, textarea {
 }
 
 #logo {
-  width: 200px;
+  /*! width: 200px; */
   height: 43px;
   display: inline-block;
   margin-top: 19px;
   float: left;
+	image-rendering: -webkit-optimize-contrast;
 }
 
 #navegacao ul {
@@ -271,24 +272,19 @@ form input, textarea {
 	color: #10bfe8;
 }
 
-.btn-secundario:hover{
+.btn-secundario:hover, .btn-secundario:hover i{
 	color: white;
 	background-color: #10bfe8;
+	transition: all ease-in-out 300ms;
 }
 
-.btn-secundario:hover > i {
-	color: white;
-	background-color: #10bfe8;
-}
-
-.btn-arquivar {
+.btn-desarquivar, .btn-desarquivar i {
 	border-color: #bababa;
 	color: #bababa;
 }
 
-.btn-arquivar:hover {
+.btn-desarquivar:hover, .btn-desarquivar:hover i {
 	background-color: #bababa;
-	color: white;
 }
 
 .aviso {
@@ -614,8 +610,8 @@ form input, textarea {
 
 .card {
 	display: grid;
-	grid-template-rows: auto auto minmax(20px, 30px);
 	grid-template-columns: 120px auto;
+	grid-template-rows: auto auto minmax(20px, 30px);
 	grid-template-areas: "titulo titulo"
 						 "descricao descricao"
 						 "tags acao";
@@ -624,10 +620,6 @@ form input, textarea {
 	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.3);
 	min-height: 210px;
 	padding: 20px 20px 12px 20px;
-}
-
-#arquivado h3.card-titulo a, #arquivado p.card-descricao a, #arquivado p.card-descricao a.saiba-mais {
-	color: #bababa;
 }
 
 #resultados .card a {
@@ -662,8 +654,8 @@ form input, textarea {
 	float: left;
 }
 
-.card #tags span:nth-child(2) a {
-	float: right;
+.card #tags span:first-child a {
+	padding-right: 10px;
 }
 
 #resultados .card .saiba-mais {
@@ -729,3 +721,6 @@ form input, textarea {
 / /  PÁGINA: Meus Projetos / /
 / / / / / / / / / / / / / / */
 
+#arquivado .card-titulo a, #arquivado .card-descricao a, #arquivado .card-descricao .saiba-mais {
+	color: #bababa;
+}
