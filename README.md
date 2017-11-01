@@ -20,25 +20,24 @@ https://imgur.com/DuXF9LT
 
 ## Requisitos
 ### Requisitos funcionais
-- [ ] O sistema deve prover um formulário de cadastro de usuários, com nome, e-mail, senha e uma descrição para mais detalhes. Essa descrição é opcional.
-- [ ] O sistema deve prover um formulário de login e uma opção caso o usuário esqueça sua senha.
-- [ ] O sistema deve prover a criação, edição, arquivamento e exclusão de projetos, sendo as três últimas exclusivas para o dono do projeto.
-- [ ] O sistema deve, na criação do projeto, prover um campo para que o usuário digite tags/categorias, facilitando a busca para possíveis interessados.
-- [ ] O sistema deve, na criação do projeto, prover um campo para que o usuário escreva um texto para os interessados receberem quando forem aceitos.
-- [ ] O sistema deve prover um formulário de busca e um feed de projetos.
-- [ ] O sistema deve dar e incentivar o uso da opção de saber mais detalhes sobre o projeto e, caso o usuário queira, solicitar participação no projeto.
+- [ ] O sistema deve prover um formulário de login e cadastro de usuários, com nome, e-mail e senha.
+- [ ] O sistema deve prover uma opção caso o usuário esqueça sua senha.
+- [x] O sistema deve prover a criação, edição, arquivamento, desarquivamento e exclusão de projetos, sendo as três últimas exclusivas para o dono do projeto.
+- [x] O sistema deve, na criação do projeto, prover um campo para que o usuário digite tags/categorias, facilitando a busca para possíveis interessados.
+- [x] O sistema deve, na criação do projeto, prover um campo para que o usuário escreva um texto para os interessados receberem quando forem aceitos.
+- [x] O sistema deve prover um formulário de busca e um feed de projetos.
+- [x] O sistema deve dar e incentivar o uso da opção de saber mais detalhes sobre o projeto e, caso o usuário queira, solicitar participação no projeto.
 - [ ] O sistema deve mostrar ao dono do projeto todas as solicitações de participação de seu projeto, e a opção de aceitá-las ou recusá-las.
 - [ ] O sistema deve mostrar ao dono e aos participantes do projeto todos os seus integrantes.
 - [ ] O sistema deve notificar usuários quando alguma solicitação feita previamente por eles for aceita, ou quando alguém solicitar participação em algum projeto deles.
-- [ ] O sistema deve dar aos usuários a opção de editar seu perfil, sair do sistema e excluir sua conta.
+- [ ] O sistema deve dar aos usuários a opção de editar seu perfil, conta e excluir sua conta.
 - [ ] O sistema deve permitir que usuários vejam o perfil de outros usuários para avaliar sua solicitação.
-- [ ] O sistema deve permitir que os usuários solicitem participação em mais de um projeto ao mesmo tempo.
-- [ ] A notificação deve ser marcada como lida assim que o usuário clicar nela.
 - [ ] Quando o usuário for aceito em um projeto, ele deve ter acesso a uma página do projeto que mostre o que ele deve fazer a partir dali, escrito pelo dono do projeto.
+- [ ] O usuário deve ser capaz de filtrar por categorias os projetos tanto na busca quanto nos seus projetos.
  
 ### Requisitos não-funcionais
-- [ ] O sistema deve ser feito usando principalmente as linguagens: HTML, CSS, JAVASCRIPT, PHP e SQL.
+- [x] O sistema deve ser feito usando principalmente as linguagens: HTML, CSS, JAVASCRIPT, PHP e SQL.
  
 ### Requisitos inversos
 - [ ] O sistema nunca dever ser acessado anonimamente.
-- [ ] O sistema nunca deve permitir campos nulos na criação e edição de projetos.
+- [x] O sistema nunca deve permitir campos nulos na criação e edição de projetos.
