@@ -425,6 +425,7 @@ form input, textarea {
 	width: 820px;
 	margin: 0 auto;
 	padding: 50px;
+	margin-bottom: 120px;
 }
 
 #formulario-editar {
@@ -445,7 +446,7 @@ form input, textarea {
 	height: 50px;
 	margin-bottom: 35px;
 	display: inline-block;
-	padding: 20px;
+	padding: 16px;
 }
 
 #formulario-editar .senha {
@@ -482,13 +483,19 @@ form input, textarea {
 	color: #bababa;
 }
 
-#dica {
+.dica {
 	margin: -30px 0 30px 0;
 }
 
 #formulario-editar p a {
 	font-size: 13px;
 	text-decoration: none;
+}
+
+#formulario-editar select {
+	margin-bottom: 10px;
+	padding: 12px;
+	font-size: 14px;
 }
 
 /* / / / / / / / / / / /
