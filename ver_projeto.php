@@ -2,12 +2,12 @@
 
 require 'db.php';
 
-session_start();
+session_start();// starta a session
 
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 
-
+// mostra nome , descriçao , tipo de ajuda e palavras chaves dos projetos
 $consulta = "SELECT * FROM projetos WHERE id =$id ";
 
 $result = mysqli_query($conn, $consulta);
@@ -28,10 +28,24 @@ while ($row = mysqli_fetch_assoc($result)) {
 				echo "Projeto Arquivado"."<br/>";
 			}
 
+			// verifica se o usuario e dono do projeto 
 			if($id_dono==$_SESSION['id_usuario']){
-			echo "<a href=\"editar_projeto.php?id=$id\">Editar projeto</a>"."</br>";
-			echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a><hr/>";
-			// mostrar equipe e solicitaçoes
+				echo "<a href=\"editar_projeto.php?id=$id\">Editar projeto</a>"."</br>";
+				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a><hr/>";
+				// mostrar equipe e solicitaçoes
+				$consulta = "SELECT nome, email, telefone FROM usuarios WHERE id_projeto = $id";
+				$result = mysqli_query($conn,$consulta);
+				
+				if(!$result){
+					die(mysqli_error());
+				}
+				
+				while($row = mysqli_fetch_assoc($result)){
+
+					}
+
+
+
 			}else{
 				$consulta = "SELECT id_usuario FROM usuarios_projetos WHERE id_projeto = $id";
 				$result = mysqli_query($conn,$consulta);
@@ -47,6 +61,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 					}
 				}
 
+				// verifica se o usuario participa do projeto
 				if($participa){
 				
 				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a><hr/>";
@@ -69,6 +84,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 						$solicitou = TRUE;
 						}
 					}
+					// verifica se o usuario solicitou acesso ao projeto
 					if($solicitou){
 						echo "<a href=\"#\">Cancelar solicitaçao</a><hr/>";
 					}else{
