@@ -63,13 +63,12 @@ form input, textarea {
 }
 
 .container-texto {
-	margin-top: 60px;
 	background-color: white;
 	padding-bottom: 50px;
 }
 
 .container-texto h2 {
-	padding: 34px 0 20px 0;
+	padding: 38px 0 25px 0;
 	font-weight: 500;
 	font-size: 24px;
 	color: #2a2a2a;
@@ -134,19 +133,15 @@ form input, textarea {
 #navegacao ul a {
 	text-decoration: none;
 	font-size: 14px;
-	color: #191919;
+	color: #a0a0a0;
 }
 
 #navegacao ul a:hover {
-	color: #30707F;
-}
-
-#navegacao ul #destaque-azul {
-	color: #10bfe8;
+	color: #191919;
 }
 
 #navegacao .selecionado {
-	color: #bababa;
+	color: #191919;
 }
 
 #bola-notificacao:after {
@@ -201,7 +196,7 @@ form input, textarea {
 	width: 158px;
 	margin-right: -20px;
 	background-color: white;
-	height: 112px;
+	height: 100px;
 	-webkit-box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
 	        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.3);
     margin-left: 15px;
@@ -213,7 +208,7 @@ form input, textarea {
 
 
 #dropdown ul {
-	margin-top: 3px;
+	margin-top: 0px;
 	margin-left: 30px;
 }
 
@@ -221,7 +216,7 @@ form input, textarea {
 	display: block;
 	padding: 0;
 	margin: 0;
-	line-height: 30px;
+	line-height: 28px;
 }
 
 #unifica-menu {
@@ -245,6 +240,7 @@ form input, textarea {
 	border-radius: 3px;
 	color: white;
 	-webkit-appearance: push-button;
+	transition: all ease 200ms;
 }
 
 .btn-primario:hover {
@@ -522,6 +518,7 @@ form input, textarea {
 #btn-editar-perfil {
 	float: right;
 	padding: 10px 30px;
+	margin: -10px 0 20px 0;
 }
 
 #btn-editar-perfil a {
@@ -730,4 +727,55 @@ form input, textarea {
 
 #arquivado .card-titulo a, #arquivado .card-descricao a, #arquivado .card-descricao .saiba-mais {
 	color: #bababa;
+}
+
+/* / / / / / / / / / / / / / /
+/ / /   PÁGINA: Projeto / / / 
+/ / / / / / / / / / / / / */
+
+#heading {
+	margin-bottom: 20px;
+}
+
+#tipo-ajuda {
+	display: inline-block;
+	font-size: 12px;
+	color: #bababa;
+}
+
+#nome-projeto {
+	color: #504f4f;
+	font-size: 46px;
+	margin-top: 10px;
+	font-weight: 600;
+}
+
+#paginas {
+	float: left;
+	margin-top: 55px;
+}
+
+#paginas ul li {
+	display: inline-block;
+}
+
+#paginas ul li a {
+	font-size: 16px;
+	color: #a0a0a0;
+	text-decoration: none;
+	margin-right: 50px;
+}
+
+#heading a button, #heading input[type="submit"] {
+  grid-area: botao;
+}
+
+#heading #paginas ul .ativo a {
+	color: #191919;
+}
+
+#heading #btn-solicitar-acesso {
+	margin-top: 45px;
+	padding: 10px 30px;
+	float: right;
 }

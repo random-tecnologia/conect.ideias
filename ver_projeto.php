@@ -1,13 +1,23 @@
 <?php 
-$titulo_pagina = "Roberto Lopes";
+$titulo_pagina = "Projeto de Desenvolvimento de Software";
 require "_header.php";
 ?>
 
 <div class="wrapper">
-  <img src="img/avatar_kaique.jpg" alt="Roberto Lopes" id="avatar-grande">
-  <h1 id="nome-usuario">Roberto Silva</h1>
-  <a href="editar_perfil.php"><button id="btn-editar-perfil" class="btn-primario">Editar perfil</button></a>
-  <div class="clearfix"></div>
+  <div id="heading">
+    <span id="tipo-ajuda">Criação</span>
+    <h1 id="nome-projeto">Projeto de Desenvolvimento de Software</h1>
+    <nav id="paginas">
+      <ul>
+        <li class="ativo"><a href="#">Descrição</a></li>
+        <li><a href="#">Próximos passos</a></li>
+        <li><a href="#">Solicitações</a></li>
+        <li><a href="#">Equipe</a></li>
+      </ul>
+    </nav>
+    <a href="#"><button id="btn-solicitar-acesso" class="btn-primario">Solicitar acesso</button></a>
+    <div class="clearfix"></div>
+  </div>
 </div>
 
 <section class="container-texto">

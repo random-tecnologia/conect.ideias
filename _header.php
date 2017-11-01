@@ -14,7 +14,7 @@
       <div class="wrapper"> 
         <a href="achar_projeto.php"><img id="logo" src="img/logo.png" alt="Logo Conect.Ideias"></a>
         <ul>
-          <li><a id="destaque-azul" href="criar_projeto.php">Criar projeto</a></li>
+          <li><a href="criar_projeto.php">Criar projeto</a></li>
           <li><a href="achar_projeto.php" class="selecionado">Achar projeto</a></li>
           <li><a href="meus_projetos.php">Meus projetos</a></li>
           <li><a id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
