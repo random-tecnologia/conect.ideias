@@ -5,6 +5,7 @@
   <title>Conect.Ideias | <?= $titulo_pagina; ?></title>
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,500,600,700" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
 <body>

@@ -51,7 +51,7 @@ if($buscar_projeto){
             <span><a href="#1">Criação</a></span>
             <span><a href="#2">Consultoria</a></span>
           </div>
-          <a id="saiba-mais" href="ver_projeto.php">SAIBA MAIS</a>
+          <a id="acao" class="saiba-mais" href="ver_projeto.php">SAIBA MAIS</a>
         </article>
     
 
