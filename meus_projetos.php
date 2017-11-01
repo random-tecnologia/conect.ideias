@@ -45,7 +45,7 @@
             <span><a href="#1">Criação</a></span>
             <span><a href="#2">Consultoria</a></span>
           </div>
-          <a id="acao" href="editar_projeto.php"><button class="btn-secundario btn-arquivar"><i class="ion-edit"></i>Arquivar</button></a>
+          <a id="acao" href="editar_projeto.php"><button class="btn-secundario"><i class="ion-edit"></i>Editar</button></a>
         </article>
 
         <div id="arquivado">
@@ -61,7 +61,7 @@
               <span><a href="#1">Criação</a></span>
               <span><a href="#2">Consultoria</a></span>
             </div>
-            <a id="acao" href="editar_projeto.php"><button class="btn-secundario btn-arquivar"><i class="ion-edit"></i>Desarquivar</button></a>
+            <a id="acao" href="editar_projeto.php"><button class="btn-secundario btn-desarquivar"><i class="ion-android-archive"></i>Desarquivar</button></a>
           </article>
         </div>
 
@@ -77,7 +77,7 @@
             <span><a href="#1">Criação</a></span>
             <span><a href="#2">Consultoria</a></span>
           </div>
-          <a id="acao" href="editar_projeto.php"><button class="btn-secundario btn-arquivar"><i class="ion-edit"></i>Arquivar</button></a>
+          <a id="acao" href="editar_projeto.php"><button class="btn-secundario"><i class="ion-edit"></i>Editar</button></a>
         </article>
 
     </section>
