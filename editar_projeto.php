@@ -21,13 +21,15 @@ if(isset($_POST['submit'])){
 
 	$result = mysqli_query($conn, $consulta);
 		if(!$result){
-		die('query failed');
+			header('Location: ler_projetos.php');
+			exit();
 		}
 
 	$consulta_2 = "SELECT id FROM projetos WHERE nome = '$nome' and descricao = '$descricao'and proximos_passos = '$proximos_passos' and quantidade_max = '$quantidade_max'";
 	$result_2 = mysqli_query($conn,$consulta_2);
 	if(!$result_2){
-		die('Query failed');
+		header('Location: ler_projetos.php');
+		exit();
 	}
 
 	while($row = mysqli_fetch_assoc($result_2)){
@@ -39,7 +41,7 @@ echo "<script>location.href='ver_projeto.php?id=$id';</script>";
 
 }
 }else {
-	header('Location: ler_meus_projetos.php');
+	header('Location: ler_projetos.php');
 	exit();
 }
 
@@ -100,14 +102,14 @@ echo "<script>location.href='ver_projeto.php?id=$id';</script>";
 
 		
 	<form method="post" action="editar_projeto.php">
-		<input type="text" name="nome" value="<?=$nome?>" required><br/>
-		<textarea name="descricao" required><?=$descricao?></textarea><br/>
+		<input type="text" name="nome" required><br/>
+		<textarea name="descricao" required></textarea><br/>
 		<textarea name="proximos_passos" required></textarea><br/>
 		<input type="number" name="quantidade_max" required><br/>
 		<input type="text" name="palavras_chave" required><br/>
 		<select name="tipo_ajuda" required>
 			<option value="todos">Todos</option>
-			<option value="criacao" selected>Criação</option>
+			<option value="criacao">Criação</option>
 			<option value="consultoria">Consultoria</option>
 		</select>
 		<input type="hidden" name="id" value="<?php echo $id?>">

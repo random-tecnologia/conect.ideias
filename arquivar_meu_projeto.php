@@ -10,13 +10,14 @@ $consulta = "UPDATE projetos SET estado = 0 WHERE id = $id";
 $result = mysqli_query($conn,$consulta);
 
 if (!$result) {
-	die('query failed');
+	header('Location: ler_projetos.php');
+	exit();
 }
-header('Location: ler_meus_projetos.php');
+header('Location: ler_projetos.php');
 exit();
 
 }else{
-	header('Location: ler_meus_projetos.php');
+	header('Location: ler_projetos.php');
 	exit();
 }
 

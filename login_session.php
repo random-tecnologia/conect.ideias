@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Criar projeto</title>
+	<title>Login teste</title>
 	<meta charset="utf-8">
 </head>
 <body>

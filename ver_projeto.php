@@ -12,15 +12,16 @@ $consulta = "SELECT * FROM projetos WHERE id =$id ";
 
 $result = mysqli_query($conn, $consulta);
 	if(!$result){
-		die('ERROR Volte Para a Pagina Principal');
+		header('Location: ler_projetos.php');
+		exit();
 	}
 
 while ($row = mysqli_fetch_assoc($result)) {
 			$id_2 = $row['id'];
 			echo $row['nome']."<br/>";
 			echo $row['descricao']."<br/>";
-			echo $row['tipo_ajuda'];
-			echo $row['proximos_passos']."<br/>";
+			echo $row['tipo_ajuda']."</br>";
+			//echo $row['proximos_passos']."<br/>";
 			echo $row['palavras_chave']."<br/>";
 			$estado = $row['estado'];
 			$id_dono = $row['id_dono'];
@@ -31,20 +32,15 @@ while ($row = mysqli_fetch_assoc($result)) {
 			// verifica se o usuario e dono do projeto 
 			if($id_dono==$_SESSION['id_usuario']){
 				echo "<a href=\"editar_projeto.php?id=$id\">Editar projeto</a>"."</br>";
-				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a><hr/>";
-				// mostrar equipe e solicitaçoes
-				$consulta = "SELECT nome, email, telefone FROM usuarios WHERE id_projeto = $id";
-				$result = mysqli_query($conn,$consulta);
+				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a>"."</br>";
 				
-				if(!$result){
-					die(mysqli_error());
-				}
+				// mostrar equipe 
 				
-				while($row = mysqli_fetch_assoc($result)){
+				echo "<a href=\"ver_equipe.php?id=$id\">Ver Equipe</a></br>";
 
-					}
+				// mostrar solicitacoes
 
-
+				echo "<a href=\"ver_solicitacoes.php?id=$id\">Ver solicitaçoes</a><hr/>";
 
 			}else{
 				$consulta = "SELECT id_usuario FROM usuarios_projetos WHERE id_projeto = $id";
@@ -64,7 +60,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 				// verifica se o usuario participa do projeto
 				if($participa){
 				
-				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a><hr/>";
+				echo "<a href=\"proximos_passos.php?id=$id\">Proximos Passos</a>"."</br>";
+				echo "<a href=\"sair_do_projeto.php?id=$id\">Sair do projeto</a><hr/>";
 
 				
 				}else{
@@ -84,18 +81,36 @@ while ($row = mysqli_fetch_assoc($result)) {
 						$solicitou = TRUE;
 						}
 					}
+
 					// verifica se o usuario solicitou acesso ao projeto
+					
 					if($solicitou){
-						echo "<a href=\"#\">Cancelar solicitaçao</a><hr/>";
+						echo "<a href=\"cancelar_solicitacao.php?id=$id\">Cancelar solicitaçao</a><hr/>";
 					}else{
-						echo "<a href=\"#\">Solicitar acesso</a><hr/>";
+						?>
+						
+
+						<form method="post" action="solicitar.php">
+						<select name="tipo_ajuda" required>
+						<option value="todos">Todos</option>
+						<option value="criacao">Criação</option>
+						<option value="consultoria">Consultoria</option>
+						</select>
+						<input type="hidden" name="id" value="<?php echo $id?>">
+						<input type="submit" name="submit" value="Solicitar acesso">
+						</form>
+
+
+						<?php
+
+						
 					}
 
 				}
 			}
 	}
 }else{
-	header('Location: ler_meus_projetos.php');
+	header('Location: ler_projetos.php');
 	exit();
 }
 
