@@ -804,3 +804,73 @@ form input, textarea, select {
 	background: rgba(0,0,0,0);
 	font-size: 14px;
 }
+
+/* / / / / / / / / / / / / / / / /
+/ / /   PÁGINA: Solicitações / / / 
+/ / / / / / / / / / / / / / / / */
+
+.solicitacoes {
+	width: 770px;
+	margin: 35px auto 80px auto;
+}
+
+.solicitacoes ul {
+	list-style-type: none;
+}
+
+.solicitacao {
+	display: grid;
+	grid-template-areas: "avatar nome acoes";
+	grid-template-columns: 82px auto auto;
+	padding: 42px 50px;
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.solicitacao a {	
+	text-decoration: none;
+}
+
+.solicitacao .avatar {	
+	grid-area: avatar;
+	display: block;
+	margin-top: 7px;
+}
+
+.solicitacao .avatar img {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+.solicitacao .identificacao {
+	grid-area: nome;
+	align-self: center;
+}
+
+.solicitacao .nome {
+	font-size: 18px;
+	color: #191919;
+	font-weight: 400;
+}
+
+.solicitacao .tipo-ajuda {
+	margin-top: -3px;
+}
+
+.solicitacao .tipo-ajuda span {
+	font-size: 11px;
+	color: #a0a0a0;
+	margin-right: 5px;
+}
+
+.solicitacao .acoes {
+	grid-area: acoes;
+	align-self: center;
+	justify-self: end;
+}
+
+.solicitacao .acoes a {
+	font-size: 14px;
+	color: #191919;
+	margin-left: 40px;
+}
