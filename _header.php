@@ -8,18 +8,18 @@
   <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
-<body>
+<body id="<?= $nome_arquivo; ?>">
   
   <nav id="navegacao">
       <div class="wrapper"> 
         <a href="achar_projeto.php"><img id="logo" src="img/logo.png" alt="Logo Conect.Ideias"></a>
         <ul>
-          <li><a href="criar_projeto.php">Criar projeto</a></li>
-          <li><a href="achar_projeto.php" class="selecionado">Achar projeto</a></li>
-          <li><a href="meus_projetos.php">Meus projetos</a></li>
-          <li><a id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
+          <li><a class="criar_projeto" href="criar_projeto.php">Criar projeto</a></li>
+          <li><a class="achar_projeto" href="achar_projeto.php">Achar projeto</a></li>
+          <li><a class="meus_projetos" href="meus_projetos.php">Meus projetos</a></li>
+          <li><a class="notificacoes" id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
         </ul>
-        <div id="perfil" onclick="toggleDropdown();">
+        <div id="nav-perfil" onclick="toggleDropdown();">
           <div id="separador"></div>
             <img id="avatar" src="img/avatar_kaique.jpg" alt="Avatar">
             <span id="nome">Roberto</span>
@@ -28,9 +28,9 @@
         <div id="dropdown" class="esconder">
           <div id="unifica-menu"></div>
           <ul>
-            <li><a href="perfil.php">Meu perfil</a></li>
-            <li><a href="conta.php">Minha conta</a></li>
-            <li><a href="sair.php">Sair</a></li>
+            <li><a class="perfil" href="perfil.php">Meu perfil</a></li>
+            <li><a class="conta" href="conta.php">Minha conta</a></li>
+            <li><a class="sair" href="sair.php">Sair</a></li>
           </ul>
         </div>
     </nav>

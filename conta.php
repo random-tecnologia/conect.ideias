@@ -1,5 +1,6 @@
 <?php 
 $titulo_pagina = "Editar conta";
+$nome_arquivo = basename(__FILE__, ".php");
 require "_header.php";
 ?>
 

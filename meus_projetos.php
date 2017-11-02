@@ -1,6 +1,7 @@
 <?php 
-    $titulo_pagina = "Meus projetos";
-    require "_header.php";
+$titulo_pagina = "Meus projetos";
+$nome_arquivo = basename(__FILE__, ".php");
+require "_header.php";
 ?>
 
 <div class="wrapper">

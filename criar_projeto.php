@@ -7,6 +7,7 @@
   }
 
   $titulo_pagina = "Criar projeto";
+  $nome_arquivo = basename(__FILE__, ".php");
   require "_header.php"; 
 ?>
 
