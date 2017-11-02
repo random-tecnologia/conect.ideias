@@ -798,3 +798,8 @@ form input, textarea {
 	color: white;
 	background: #a0a0a0;
 }
+
+.btn-editar-projeto {
+	background: rgba(0,0,0,0);
+	font-size: 14px;
+}
