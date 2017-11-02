@@ -46,7 +46,7 @@ a:active {
 	color: #30707F; /* Variação mais escura */
 }
 
-form input, textarea {
+form input, textarea, select {
 	height: 45px;
 	display: block;
 	margin: 0 auto;
@@ -499,6 +499,7 @@ form input, textarea {
 	margin-bottom: 10px;
 	padding: 12px;
 	font-size: 14px;
+	margin: 0;
 }
 
 /* / / / / / / / / / / /

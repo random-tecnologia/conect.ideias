@@ -6,8 +6,7 @@
     $descricao = $Parsedown->text($_POST["descricao"]);
   }
 
-  $titulo_pagina = "Criar projeto";
-  $nome_arquivo = basename(__FILE__, ".php");
+  $titulo_pagina = "Editar projeto";
   require "_header.php"; 
 ?>
 
@@ -43,7 +42,7 @@
       </select>
       <div class="clearfix"></div>
 
-      <input class="btn-primario" type="submit" name="submit" value="Criar">
+      <input class="btn-primario" type="submit" name="submit" value="Salvar">
       <div class="clearfix"></div>
     </form>
   </section>
