@@ -14,7 +14,7 @@ $result = mysqli_query($conn,$consulta);
 		exit();
 	}
 
-header('Location: ler_meus_projetos.php');
+header('Location: ler_projetos.php');
 exit();
 }else{
 	header('Location: ler_projetos.php');

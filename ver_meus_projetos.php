@@ -1,9 +1,8 @@
 
-<a href="ver_meus_projetos_2.php?filtro=todos">todos</a>
-<a href="ver_meus_projetos_2.php?filtro=criados">criados</a>
-<a href="ver_meus_projetos_2.php?filtro=participa">participa</a>
-<a href="ver_meus_projetos_2.php?filtro=solicita">solicitado</a></br>
-
+<a href="ver_meus_projetos.php?filtro=todos">todos</a>
+<a href="ver_meus_projetos.php?filtro=criados">criados</a>
+<a href="ver_meus_projetos.php?filtro=participa">participa</a>
+<a href="ver_meus_projetos.php?filtro=solicita">Solicitado</a></br>
 
 
 <?php  
@@ -12,9 +11,9 @@ require "db.php";
 
 session_start();
 
-if(isset($_POST['submit'])){
+if(isset($_GET['filtro'])){
 
-	$filtro = $_POST['filtro'];
+	$filtro = $_GET['filtro'];
 	$id_dono = $_SESSION['id_usuario'];
 	$id_usuario = $id_dono;
 
@@ -206,7 +205,7 @@ if(isset($_POST['submit'])){
 
 else{
 
-		// PROJETOS CRIADOS
+	// PROJETOS CRIADOS
 
 	$id_dono = $_SESSION['id_usuario'];
 	$id_usuario = $id_dono;	
@@ -291,7 +290,6 @@ else{
 
 	}
 	
-
 }
 
 
