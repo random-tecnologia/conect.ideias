@@ -1,5 +1,6 @@
 <?php 
     $titulo_pagina = "Achar projeto";
+    $nome_arquivo = basename(__FILE__, ".php");
     require "_header.php";
 ?>
 

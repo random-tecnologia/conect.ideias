@@ -615,18 +615,19 @@ form input, textarea, select {
 }
 
 .filtro .selecionado {
-	color: #a0a0a0;
+	color: #191919;
 }
 
 .filtro a:hover {
-	color: #30707F;
+	color: #191919;
+	border-bottom: 1px solid #191919;
 }
 
 .filtro ul li a {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 12px;
-	color: #191919;
+	color: #a0a0a0;
 }
 
 #filtro-meus-projetos {
@@ -657,6 +658,16 @@ form input, textarea, select {
 #resultados .card a {
 	text-decoration: none;
 	color: #494848;
+}
+
+#resultados .card a#saiba-mais {
+	color: #10bfe8;
+	align-self: center;
+}
+
+.card #saiba-mais {
+	font-size: 12px;
+	text-align: right;
 }
 
 .card .card-titulo {
