@@ -584,20 +584,30 @@ form input, textarea, select {
 	color: #a49d9d;
 }
 
-.menu-paginacao{
+.menu-paginacao {
 	text-align:center;
-	
+  margin-bottom: 80px;	
 }
+
+.menu-paginacao span {
+	font-size: 14px;
+}
+
+.menu-paginacao a {
+	text-decoration: none;
+}
+
 .menu-paginacao ul li{
-	font-size:15px;
+	font-size:16px;
 	display:inline-block;
 	padding:5px;
 	padding-top:20px;
 }
 
-.menu-paginacao ul li.pagina-atual{
+.menu-paginacao ul li.pagina-atual a {
 	font-size:20px;
-	text-decoration:bold;
+	font-weight:bold;
+	color: #191919;
 }
 
 .menu-paginacao ul li span.true{

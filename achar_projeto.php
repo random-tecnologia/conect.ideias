@@ -22,7 +22,7 @@ require "db.php";
   
   
   //Limitar itens(Projetos) por pagina
-  $num_itens_pagina = 9;
+  $num_itens_pagina = 1;
   $inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
   
   //filtragem de resultados encontrados
@@ -104,10 +104,10 @@ require "db.php";
             if($pagina_anterior!=0){ 
           ?>
             <a href="achar_projeto.php?pagina=<?php echo $pagina_anterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>&filtro=<?php echo $filtro_proj;?>" aria-label="Previous">
-              <span class="true" aria-hidden="true">&laquo;</span>
+              <span class="true" aria-hidden="true">&laquo; Página anterior</span>
             </a>
           <?php }else{ ?>
-            <span class="false" aria-hidden="true">&laquo;</span>
+            <span class="false" aria-hidden="true">&laquo; Página anterior</span>
           <?php } ?>
         </li>
         
@@ -125,12 +125,12 @@ require "db.php";
             if($pagina_posterior <= $total_paginas){ 
           ?>
           <a href="achar_projeto.php?pagina=<?php echo $pagina_posterior; ?>&buscaproj=<?php echo $buscar_projeto; ?>&filtro=<?php echo $filtro_proj;?>" aria-label="Previous">
-            <span class="true" aria-hidden="true">&raquo;</span>
+            <span class="true" aria-hidden="true">Próxima página &raquo;</span>
           </a>
           <?php 
             }else{ 
           ?>
-            <span class="false" aria-hidden="true">&raquo;</span>
+            <span class="false" aria-hidden="true">Próxima página &raquo;</span>
           <?php }  ?>
         </li>
       </ul>
