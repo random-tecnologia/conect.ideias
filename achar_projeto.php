@@ -22,7 +22,7 @@ require "db.php";
   
   
   //Limitar itens(Projetos) por pagina
-  $num_itens_pagina = 1;
+  $num_itens_pagina = 9;
   $inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
   
   //filtragem de resultados encontrados
