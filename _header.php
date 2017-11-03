@@ -14,10 +14,10 @@
       <div class="wrapper"> 
         <a href="achar_projeto.php"><img id="logo" src="img/logo.png" alt="Logo Conect.Ideias"></a>
         <ul>
-          <li><a class="criar_projeto" href="criar_projeto.php">Criar projeto</a></li>
-          <li><a class="achar_projeto" href="achar_projeto.php">Achar projeto</a></li>
-          <li><a class="meus_projetos" href="meus_projetos.php">Meus projetos</a></li>
-          <li><a class="notificacoes" id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
+          <li><a id="criar_projeto" href="criar_projeto.php">Criar projeto</a></li>
+          <li><a id="achar_projeto" href="achar_projeto.php">Achar projeto</a></li>
+          <li><a id="meus_projetos" href="meus_projetos.php">Meus projetos</a></li>
+          <li><a id="notificacoes" id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
         </ul>
         <div id="nav-perfil" onclick="toggleDropdown();">
           <div id="separador"></div>
@@ -28,9 +28,9 @@
         <div id="dropdown" class="esconder">
           <div id="unifica-menu"></div>
           <ul>
-            <li><a class="perfil" href="perfil.php">Meu perfil</a></li>
-            <li><a class="conta" href="conta.php">Minha conta</a></li>
-            <li><a class="sair" href="sair.php">Sair</a></li>
+            <li><a id="perfil" href="perfil.php">Meu perfil</a></li>
+            <li><a id="conta" href="conta.php">Minha conta</a></li>
+            <li><a id="sair" href="sair.php">Sair</a></li>
           </ul>
         </div>
     </nav>

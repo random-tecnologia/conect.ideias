@@ -137,7 +137,9 @@ form input, textarea, select {
 }
 
 #navegacao ul a:hover {
-	color: #191919;
+	color: #10bfe8;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #10bfe8;
 }
 
 #bola-notificacao:after {
@@ -227,11 +229,13 @@ form input, textarea, select {
 * — Hack para item selecionado —
 ///////////////////////////// */
 
-#criar_projeto .criar_projeto, #achar_projeto .achar_projeto,
-#meus_projetos .meus_projetos, #notificacoes .notificacoes, #perfil .perfil,
-#conta .conta, #ver_projeto .ver_projeto, #proximos_passos .proximos_passos,
-#solicitacoes .solicitacoes, #equipe .equipe {
+#criar_projeto #criar_projeto, #achar_projeto #achar_projeto,
+#meus_projetos #meus_projetos, #notificacoes #notificacoes, #perfil #perfil,
+#conta #conta, #ver_projeto #ver_projeto, #proximos_passos #proximos_passos,
+#solicitacoes #solicitacoes, #equipe #equipe {
 	color: #10bfe8;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #10bfe8;
 }
 
 /* /////////
@@ -814,6 +818,12 @@ form input, textarea, select {
 	color: #a0a0a0;
 	text-decoration: none;
 	margin-right: 50px;
+}
+
+#paginas ul li a:hover {
+	color: #10bfe8;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #10bfe8;
 }
 
 #heading a button, #heading input[type="submit"] {
