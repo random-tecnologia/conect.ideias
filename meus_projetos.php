@@ -1,8 +1,8 @@
 
-<a href="ver_meus_projetos.php?filtro=todos">todos</a>
-<a href="ver_meus_projetos.php?filtro=criados">criados</a>
-<a href="ver_meus_projetos.php?filtro=participa">participa</a>
-<a href="ver_meus_projetos.php?filtro=solicita">Solicitado</a></br>
+<a href="meus_projetos.php?filtro=todos">todos</a>
+<a href="meus_projetos.php?filtro=criados">criados</a>
+<a href="meus_projetos.php?filtro=participa">participa</a>
+<a href="meus_projetos.php?filtro=solicita">Solicitado</a></br>
 
 
 <?php  

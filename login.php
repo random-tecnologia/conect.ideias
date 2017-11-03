@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 </head>
 <body>
 
-	<form method="post" action="login_session.php">
+	<form method="post" action="login.php">
 		<input type="email" name="email" required><br/>
 		<input type="password" name="senha" required><br/>
 		<input type="submit" name="submit" value="Enviar">

@@ -36,11 +36,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 				
 				// mostrar equipe 
 				
-				echo "<a href=\"ver_equipe.php?id=$id\">Ver Equipe</a></br>";
+				echo "<a href=\"equipe.php?id=$id\">Ver Equipe</a></br>";
 
 				// mostrar solicitacoes
 
-				echo "<a href=\"ver_solicitacoes.php?id=$id\">Ver solicitaçoes</a><hr/>";
+				echo "<a href=\"solicitacoes.php?id=$id\">Ver solicitaçoes</a><hr/>";
 
 			}else{
 				$consulta = "SELECT id_usuario FROM usuarios_projetos WHERE id_projeto = $id";

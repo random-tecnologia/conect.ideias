@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
 
 
 
-		echo "<script>location.href='ver_equipe.php?id=$id';</script>";	
+		echo "<script>location.href='equipe.php?id=$id';</script>";	
 
 	}else{
 		header('Location: ler_projetos.php');

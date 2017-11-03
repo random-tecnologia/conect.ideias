@@ -129,7 +129,7 @@ echo "<script>location.href='ver_projeto.php?id=$id';</script>";
     	<p>Tem certeza Que deseja deletar esse projeto?</p>
     <?php  
 
-		echo "<a href=\"delete_meu_projeto.php?id=$id\">Sim</a></br>";
+		echo "<a href=\"excluir_projeto.php?id=$id\">Sim</a></br>";
 		echo "<a href='#' id='nao'>Nao</a>"; 
     
     ?>
@@ -156,9 +156,9 @@ echo "<script>location.href='ver_projeto.php?id=$id';</script>";
 		$estado = $row_arquivar['estado'];
 
 		if($estado == 1){
-			echo "<a href=\"arquivar_meu_projeto.php?id=$id\">Arquivar projeto</a>";
+			echo "<a href=\"arquivar_projeto.php?id=$id\">Arquivar projeto</a>";
 		}elseif ($estado == 0) {
-			echo "<a href=\"desarquivar_meu_projeto.php?id=$id\">Desarquivar projeto</a>";		
+			echo "<a href=\"desarquivar_projeto.php?id=$id\">Desarquivar projeto</a>";		
 		}	
 
 
