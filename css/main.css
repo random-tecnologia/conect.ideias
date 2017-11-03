@@ -649,6 +649,10 @@ form input, textarea, select {
 	margin-top: -23px;
 }
 
+#filtro-meus-projetos span {
+	font-style: normal;
+}
+
 #resultados {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -855,6 +859,27 @@ form input, textarea, select {
 .btn-editar-projeto {
 	background: rgba(0,0,0,0);
 	font-size: 14px;
+}
+
+#form-solicitar-acesso {
+	height: auto;
+	float: right;
+	margin-top: 45px;
+}
+
+#form-solicitar-acesso select {
+	float: left;
+	font-size: 12px;
+	padding-left: 3px;
+	margin-right: 10px;
+	width: 172px;
+	display: inline-block;
+}
+
+#form-solicitar-acesso #btn-solicitar-acesso {
+	float: right;
+	display: inline-block;
+	margin: 0;
 }
 
 /* / / / / / / / / / / / / / / / /
