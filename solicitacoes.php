@@ -16,11 +16,10 @@ require "_projeto.php";
 	                	<span>Criação</span>
 	                	<span>Consultoria</span>
                 	</div>
-                </a>
                 <div class="acoes">
-                	<a href="#" class="aceitar">Aceitar</a>
-                	<a href="#" class="rejeitar">Rejeitar</a>
-                	<a href="#" class="ver-perfil">Ver perfil</a>
+                	<a href="#">Aceitar</a>
+                	<a href="#">Rejeitar</a>
+                	<a href="#">Ver perfil</a>
                 </div>
             </li>
 
@@ -33,9 +32,9 @@ require "_projeto.php";
 	                	<span>Consultoria</span>
                 	</div>
                 <div class="acoes">
-                	<a href="#" class="aceitar">Aceitar</a>
-                	<a href="#" class="rejeitar">Rejeitar</a>
-                	<a href="#" class="ver-perfil">Ver perfil</a>
+                	<a href="#">Aceitar</a>
+                	<a href="#">Rejeitar</a>
+                	<a href="#">Ver perfil</a>
                 </div>
             </li>
 
@@ -48,9 +47,9 @@ require "_projeto.php";
 	                	<span>Consultoria</span>
                 	</div>
                 <div class="acoes">
-                	<a href="#" class="aceitar">Aceitar</a>
-                	<a href="#" class="rejeitar">Rejeitar</a>
-                	<a href="#" class="ver-perfil">Ver perfil</a>
+                	<a href="#">Aceitar</a>
+                	<a href="#">Rejeitar</a>
+                	<a href="#">Ver perfil</a>
                 </div>
             </li>
         </ul>

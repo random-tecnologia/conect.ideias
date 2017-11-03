@@ -829,12 +829,12 @@ form input, textarea, select {
 / / /   PÁGINA: Solicitações / / / 
 / / / / / / / / / / / / / / / / */
 
-.solicitacoes, .equipe {
+.solicitacoes {
 	width: 770px;
 	margin: 35px auto 80px auto;
 }
 
-.solicitacoes ul, equipe ul {
+.solicitacoes ul {
 	list-style-type: none;
 }
 
@@ -846,103 +846,51 @@ form input, textarea, select {
 	border-bottom: 1px solid #f4f4f4;
 }
 
-.solicitacao a, .participante a {	
+.solicitacao a {	
 	text-decoration: none;
 }
 
-.solicitacao .avatar, .participante .avatar {	
+.solicitacao .avatar {	
 	grid-area: avatar;
 	display: block;
 	margin-top: 7px;
 }
 
-.solicitacao img, .participante img {
+.solicitacao .avatar img {
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
 }
 
-.solicitacao .identificacao, .participante .identificacao {
+.solicitacao .identificacao {
 	grid-area: nome;
 	align-self: center;
 }
 
-.solicitacao .nome, .participante .nome {
+.solicitacao .nome {
 	font-size: 18px;
 	color: #191919;
 	font-weight: 400;
 }
 
-.solicitacao .tipo-ajuda, .participante .tipo-ajuda {
+.solicitacao .tipo-ajuda {
 	margin-top: -3px;
 }
 
-.solicitacao .tipo-ajuda span, .participante .tipo-ajuda span {
+.solicitacao .tipo-ajuda span {
 	font-size: 11px;
 	color: #a0a0a0;
 	margin-right: 5px;
 }
 
-.solicitacao .acoes, .participante .acoes {
+.solicitacao .acoes {
 	grid-area: acoes;
 	align-self: center;
 	justify-self: end;
 }
 
-.solicitacao .acoes a, .participante .acoes a {
+.solicitacao .acoes a {
 	font-size: 14px;
+	color: #191919;
 	margin-left: 40px;
-}
-
-.aceitar {
-	color: #32d57f;
-}
-
-.aceitar:hover {
-	color: #32d57f;
-	border-bottom: 1px solid #32d57f;
-}
-
-.rejeitar {
-	color: #e8124e;
-}
-
-.rejeitar:hover {
-	color: #e8124e;
-	border-bottom: 1px solid #e8124e;
-}
-
-.ver-perfil:hover {
-	color: #10bfe8;
-	border-bottom: 1px solid #10bfe8;
-}
-
-/* / / / / / / / / / / / / / / / /
-/ / /   PÁGINA: Equipe / / / / / / 
-/ / / / / / / / / / / / / / / / */
-
-.participante {
-	display: grid;
-	grid-template-areas: "avatar nome contato acoes";
-	grid-template-columns: 82px auto auto 230px;
-	padding: 42px 50px;
-	border-bottom: 1px solid #f4f4f4;
-}
-
-.participante .avatar {
-	align-self: center;
-}
-
-.participante .contato {
-	grid-area: contato;
-	align-self: center;
-	justify-self: center;
-}
-
-
-.participante .contato span {
-	display: block;
-	font-size: 12px;
-	color: #191919;	
-	line-height: 20px;
 }
