@@ -8,13 +8,17 @@
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
 <body>
-  <!-- <div class="aviso erro aviso-entrar">
-    <h2>Erro ao entrar</h2>
-      <ul>
-        <li>Esse e-mail não foi cadastrado no nosso sistema</li>
-        <li>Sua senha não confere</li>
-      </ul>
-  </div> -->
+  <div class="aviso erro aviso-entrar">
+    <div class="wrapper">
+      <h2>Erro ao entrar</h2>
+      <div class="texto">
+        <ul>
+          <li>Esse e-mail não foi cadastrado no nosso sistema</li>
+          <li>Sua senha não confere</li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="bg">
     <img id="logo-entrar" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
     <section class="container container-cadastro">
