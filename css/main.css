@@ -795,10 +795,11 @@ form input, textarea, select {
 	margin-bottom: 20px;
 }
 
-#tipo-ajuda {
+#tipo-ajuda a {
 	display: inline-block;
 	font-size: 12px;
-	color: #bababa;
+	color: #b1b1b1;
+	text-decoration: none;
 }
 
 #nome-projeto {
@@ -972,6 +973,12 @@ form input, textarea, select {
 .ver-perfil:hover {
 	color: #10bfe8;
 	border-bottom: 1px solid #10bfe8;
+}
+
+.filtro-equipe {
+	margin: 30px auto -15px auto;
+	float: unset;
+	text-align: center;
 }
 
 /* / / / / / / / / / / / / / / / /

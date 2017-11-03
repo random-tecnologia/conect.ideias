@@ -13,9 +13,6 @@ require "_header.php";
             <li><a href="#">Criados</a></li>
             <li><a href="#">Participando</a></li>
             <li><a href="#">Solicitado</a></li>
-            <li><span>|</span></li>
-            <li><a href="#">Criação</a></li>
-            <li><a href="#">Consultoria</a></li>
           </ul>
         </div>
     </section>

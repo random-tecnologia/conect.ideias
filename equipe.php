@@ -6,6 +6,14 @@ require "_projeto.php";
 ?>
 
 <div class="wrapper">
+    <div class="filtro filtro-equipe">
+          <ul>
+            <li><a href="#" class="selecionado">Todos</a></li>
+            <li><a href="#">Criação</a></li>
+            <li><a href="#">Consultoria</a></li>
+          </ul>
+    </div>
+    <div class="clearfix"></div>
 	<section class="container container-lista equipe">
 		<ul>
             <li class="participante">
