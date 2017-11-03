@@ -584,6 +584,26 @@ form input, textarea, select {
 	color: #a49d9d;
 }
 
+.menu-paginacao{
+	text-align:center;
+	
+}
+.menu-paginacao ul li{
+	font-size:15px;
+	display:inline-block;
+	padding:5px;
+	padding-top:20px;
+}
+
+.menu-paginacao ul li.pagina-atual{
+	font-size:20px;
+	text-decoration:bold;
+}
+
+.menu-paginacao ul li span.true{
+	color:#10bfe8;
+}
+
 .filtro {
 	float: right;
 	margin-top: -12px;
