@@ -1,29 +1,154 @@
-<div class="wrapper">
-  <div id="heading">
-    <span id="tipo-ajuda"><a href="#">Criação</a></span>
-    <h1 id="nome-projeto">Projeto de Desenvolvimento de Software</h1>
-    <nav id="paginas">
-      <ul>
-        <li><a id="ver_projeto" href="ver_projeto.php">Descrição</a></li>
-        <li><a id="proximos_passos" href="proximos_passos.php">Próximos passos</a></li>
-        <li><a id="solicitacoes" href="solicitacoes.php">Solicitações</a></li>
-        <li><a id="equipe" href="equipe.php">Equipe</a></li>
-      </ul>
-    </nav>
-    <!-- <form id="form-solicitar-acesso" action="" method="post">
-      <select id="select-solicitar-acesso" required="required">
-        <option value="">Selecione (Tipo ajuda)</option>
-        <option value="">-------------</option>
-        <option value="todos">Todos</option>
-        <option value="criacao">Criação</option>
-        <option value="consultoria">Consultoria</option>
-      </select>
-      <input type="submit" id="btn-solicitar-acesso" class="btn-primario" value="Solicitar acesso">
-      <div class="clearfix"></div>
-    </form> -->
-    <!-- <a href="#"><button id="btn-solicitar-acesso" class="btn-secundario btn-projeto">Cancelar solicitação</button></a> -->
-    <!-- <a href="#"><button id="btn-solicitar-acesso" class="btn-secundario btn-projeto">Sair do projeto</button></a> -->
-    <a href="editar_projeto.php"><button id="btn-solicitar-acesso" class="btn-secundario btn-editar-projeto"><i class="ion-edit"></i>Editar</button></a>
-    <div class="clearfix"></div>
-  </div>
-</div>
+<?php
+require 'db.php';
+require "_header.php";
+
+session_start();// starta a session
+
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+
+  // mostra nome , descriçao , tipo de ajuda e palavras-chave dos projetos
+  $consulta = "SELECT * FROM projetos WHERE id =$id ";
+
+  $result = mysqli_query($conexao, $consulta);
+  if(!$result){
+    header('Location: ler_projetos.php');
+    exit();
+  }
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+      $id_2 = $row['id'];
+      $nome_projeto = $row['nome'];
+      $descricao = $row['descricao'];
+      $tipo_ajuda = $row['tipo_ajuda'];
+      $estado = $row['estado'];
+      $id_dono = $row['id_dono'];
+      if($estado != 1){
+        echo "Projeto Arquivado"."<br/>";
+      }
+      // verifica se o usuario e dono do projeto 
+      if($id_dono==$_SESSION['id_usuario']){  ?>
+        <div class="wrapper">
+          <div id="heading">
+            <span id="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+            <h1 id="nome-projeto"><?= $nome_projeto; ?></h1>
+            <nav id="paginas">
+              <ul>
+                <li><a id="descricao" href="descricao.php?id=<?= $id; ?>">Descrição</a></li>
+                <li><a id="proximos_passos" href="proximos_passos.php?id=<?= $id; ?>">Próximos passos</a></li>
+                <li><a id="solicitacoes" href="solicitacoes.php?id=<?= $id; ?>">Solicitações</a></li>
+                <li><a id="equipe" href="equipe.php?id=<?= $id; ?>">Equipe</a></li>
+              </ul>
+            </nav>
+            <a href="editar_projeto.php?id=<?= $id; ?>"><button id="btn-solicitar-acesso" class="btn-secundario btn-editar-projeto"><i class="ion-edit"></i>Editar</button></a>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+    <?php
+
+      }else{
+        $consulta = "SELECT id_usuario FROM usuarios_projetos WHERE id_projeto = $id";
+        $result = mysqli_query($conexao,$consulta);
+        if(!$result){
+          die(mysqli_error());
+        }
+        $participa = FALSE;
+        while($row = mysqli_fetch_assoc($result)){
+
+          if($row['id_usuario']==$_SESSION['id_usuario']){
+
+            $participa = TRUE;
+          }
+        }
+
+        // verifica se o usuario participa do projeto
+        if($participa){ ?>
+
+        <div class="wrapper">
+          <div id="heading">
+            <span id="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+            <h1 id="nome-projeto"><?= $nome_projeto; ?></h1>
+            <nav id="paginas">
+              <ul>
+                <li><a id="descricao" href="descricao.php?id=<?= $id; ?>">Descrição</a></li>
+                <li><a id="proximos_passos" href="proximos_passos.php?id=<?= $id; ?>">Próximos passos</a></li>
+              </ul>
+            </nav>
+            <a href="sair_do_projeto.php?id=<?= $id; ?>"><button id="btn-solicitar-acesso" class="btn-secundario btn-projeto">Sair do projeto</button></a>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <?php
+        
+        }else{
+
+          $consulta = "SELECT id_usuario FROM solicitacoes WHERE id_projeto = $id";
+          $result = mysqli_query($conexao,$consulta);
+        
+          if(!$result){
+          die(mysqli_error());
+          }
+          $solicitou = FALSE;
+
+          while($row = mysqli_fetch_assoc($result)){
+
+            if($row['id_usuario']==$_SESSION['id_usuario']){
+
+            $solicitou = TRUE;
+            }
+          }
+
+          // verifica se o usuario solicitou acesso ao projeto
+          
+          if($solicitou){ ?>
+
+          <div class="wrapper">
+            <div id="heading">
+              <span id="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+              <h1 id="nome-projeto"><?= $nome_projeto; ?></h1>
+              <nav id="paginas">
+                <ul>
+                  <li><a id="descricao" href="descricao.php?id=<?= $id; ?>">Descrição</a></li>
+                </ul>
+              </nav>
+              <a href="cancelar_solicitacao.php?id=<?= $id; ?>"><button id="btn-solicitar-acesso" class="btn-secundario btn-projeto">Cancelar solicitação</button></a>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <?php }else{  ?>
+
+          <div class="wrapper">
+            <div id="heading">
+              <span id="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+              <h1 id="nome-projeto"><?= $nome_projeto; ?></h1>
+              <nav id="paginas">
+                <ul>
+                  <li><a id="ver_projeto" href="descricao.php?id=<?= $id; ?>">Descrição</a></li>
+                </ul>
+              </nav>
+              <form id="form-solicitar-acesso" action="solicitar.php" method="post">
+                <select name="tipo_ajuda" id="select-solicitar-acesso" required="required">
+                  <option value="">Selecione (Tipo ajuda)</option>
+                  <option value="Todos">Todos</option>
+                  <option value="Criação">Criação</option>
+                  <option value="Consultoria">Consultoria</option>
+                </select>
+                <input type="hidden" name="id" value="<?php echo $id;?>">
+                <input type="submit" name="submit" id="btn-solicitar-acesso" class="btn-primario" value="Solicitar acesso">
+                <div class="clearfix"></div>
+              </form>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+<?php          
+          }
+        }
+      }
+    }
+}else{
+  echo "<script>window.history.go(-1)</script>";
+  exit();
+}
+?>

@@ -66,10 +66,10 @@ require "db.php";
 ?>
         <article class="container card">
             <h3 class="card-titulo">
-              <a href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>"><?= $nome_proj ?></a>
+              <a href="descricao.php?id=<?php echo $id_proj; ?>"><?= $nome_proj ?></a>
             </h3>
             <p class="card-descricao">
-              <a href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>"><?= $descricao_proj ?></a>
+              <a href="descricao.php?id=<?php echo $id_proj; ?>"><?= $descricao_proj ?></a>
             </p>
 
           <div id="tags">
@@ -79,7 +79,7 @@ require "db.php";
               <span><a href="#2">Consultoria</a></span>
             <?php } ?>
           </div>
-          <a id="saiba-mais" href="ver_projeto.php?id_projeto=<?php echo $id_proj; ?>">SAIBA MAIS</a>
+          <a class="saiba-mais" href="descricao.php?id=<?php echo $id_proj; ?>">SAIBA MAIS</a>
         </article>
     
 

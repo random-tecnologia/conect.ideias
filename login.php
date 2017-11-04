@@ -1,3 +1,35 @@
+<?php 
+
+require "db.php";
+
+session_start();
+
+if(isset($_POST['submit'])){
+
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+
+
+	$verifica = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
+
+	$result = mysqli_query($conexao,$verifica);
+
+	if(!$result){
+		die("query failed");
+	}
+  while ($row = mysqli_fetch_assoc($result)) {
+
+  		$id_usuario = $row['id'];
+
+  		if(!isset($_SESSION['id_usuario'])){
+  		  $_SESSION['id_usuario'] = $id_usuario;
+        header('location: meus_projetos.php');
+  		}
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +40,7 @@
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
 <body>
-  <div class="aviso erro aviso-entrar">
+  <!-- <div class="aviso erro aviso-entrar">
     <div class="wrapper">
       <h2>Erro ao entrar</h2>
       <div class="texto">
@@ -18,11 +50,11 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="bg">
     <img id="logo-entrar" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
     <section class="container container-cadastro">
-      <form class="formulario-entrar" action="" method="post">
+      <form class="formulario-entrar" action="login.php" method="post">
         <h1>Entre em sua conta</h1>
         <p>Ainda não tem conta? <a href="cadastro.php">Clique aqui e cadastre-se.</a></p>
         <input type="text" name="email" placeholder="E-mail" required>
