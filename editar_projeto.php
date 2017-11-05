@@ -32,7 +32,7 @@ if(isset($_GET['id'])?$_GET['id']:$_POST['id']){
     $palavras_chave = $_POST['palavras_chave'];
     $tipo_ajuda = $_POST['tipo_ajuda'];
 
-    $consulta = "UPDATE projetos SET nome='{$nome}',descricao='{$descricao}',proximos_passos='{$proximos_passos}',palavras_chave='{$palavras_chave}' WHERE id = {$id} ";
+    $consulta = "UPDATE projetos SET nome='{$nome}',descricao='{$descricao}',proximos_passos='{$proximos_passos}',palavras_chave='{$palavras_chave}', tipo_ajuda='{$tipo_ajuda}' WHERE id = {$id} ";
     $result = mysqli_query($conexao, $consulta);
 
     if(!$result){

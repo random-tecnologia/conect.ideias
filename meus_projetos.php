@@ -60,8 +60,13 @@ if(isset($_GET['filtro'])){
 		                <a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		              </p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 		            <a id="acao" href="desarquivar_projeto.php?id=<?= $id_projeto; ?>"><button class="btn-secundario btn-desarquivar"><i class="ion-android-archive"></i>Desarquivar</button></a>
 		          </article>
 		        </div>
@@ -78,8 +83,13 @@ if(isset($_GET['filtro'])){
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 				</p>
 	            <div id="tags">
-	              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-	            </div>
+		            <?php if ($tipo_ajuda == "Todos") { ?>
+		              <span><a href="#1">Criação</a></span>
+		              <span><a href="#2">Consultoria</a></span>
+		            <?php } else { ?>
+		              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+		            <?php } ?>
+				</div>
 				<a id="acao" href="editar_projeto.php?id=<?= $id_projeto; ?>"><button class="btn-secundario"><i class="ion-edit"></i>Editar</button></a>
 	        </article>
 
@@ -122,8 +132,13 @@ if(isset($_GET['filtro'])){
 						<a href="descricao.php?id=<?= $id_projeto; ?>"><?= $descricao; ?></a>
 					</p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		        </article>
         <?php
@@ -165,8 +180,13 @@ if(isset($_GET['filtro'])){
 						<a href="descricao.php?id=<?= $id_projeto; ?>"><?= $descricao; ?></a>
 					</p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		        </article>
         <?php
@@ -206,8 +226,13 @@ if(isset($_GET['filtro'])){
 		                <a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		              </p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 		            <a id="acao" href="desarquivar_projeto.php?id=<?= $id_projeto; ?>"><button class="btn-secundario btn-desarquivar"><i class="ion-android-archive"></i>Desarquivar</button></a>
 		          </article>
 		        </div>
@@ -224,8 +249,13 @@ if(isset($_GET['filtro'])){
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 				</p>
 	            <div id="tags">
-	              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-	            </div>
+		            <?php if ($tipo_ajuda == "Todos") { ?>
+		              <span><a href="#1">Criação</a></span>
+		              <span><a href="#2">Consultoria</a></span>
+		            <?php } else { ?>
+		              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+		            <?php } ?>
+				</div>
 				<a id="acao" href="editar_projeto.php?id=<?= $id_projeto; ?>"><button class="btn-secundario"><i class="ion-edit"></i>Editar</button></a>
 	        </article>
 
@@ -272,8 +302,13 @@ if(isset($_GET['filtro'])){
 						<a href="descricao.php?id=<?= $id_projeto; ?>"><?= $descricao; ?></a>
 					</p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		        </article>
         <?php
@@ -321,8 +356,13 @@ if(isset($_GET['filtro'])){
 						<a href="descricao.php?id=<?= $id_projeto; ?>"><?= $descricao; ?></a>
 					</p>
 		            <div id="tags">
-		              <span><a href="#1"><?= $tipo_ajuda ?></a></span>
-		            </div>
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		        </article>
         <?php

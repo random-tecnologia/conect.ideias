@@ -73,10 +73,11 @@ require "db.php";
             </p>
 
           <div id="tags">
-            <?php if ($tipo_ajuda == "criacao") { ?>
+            <?php if ($tipo_ajuda == "Todos") { ?>
               <span><a href="#1">Criação</a></span>
-            <?php } else if ($tipo_ajuda == "consultoria") { ?>
               <span><a href="#2">Consultoria</a></span>
+            <?php } else { ?>
+              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
             <?php } ?>
           </div>
           <a class="saiba-mais" href="descricao.php?id=<?php echo $id_proj; ?>">SAIBA MAIS</a>

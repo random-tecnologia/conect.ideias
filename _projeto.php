@@ -33,7 +33,12 @@ if(isset($_GET['id'])){
       if($id_dono==$_SESSION['id_usuario']){  ?>
         <div class="wrapper">
           <div id="heading">
-            <span id="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+            <?php if ($tipo_ajuda == "Todos"){ ?>
+              <span class="tipo-ajuda"><a href="#">Criação</a></span>
+              <span class="tipo-ajuda"><a href="#">Consultoria</a></span>
+            <?php } else { ?>
+              <span class="tipo-ajuda"><a href="#"><?= $tipo_ajuda; ?></a></span>
+            <?php } ?>
             <h1 id="nome-projeto"><?= $nome_projeto; ?></h1>
             <nav id="paginas">
               <ul>
