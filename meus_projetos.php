@@ -45,9 +45,14 @@ if(isset($_GET['filtro'])){
 		{
 			$id_projeto = $row['id'];
 			$nome_projeto = $row['nome'];
-			$descricao = $row['descricao'];
 			$tipo_ajuda = $row['tipo_ajuda'];
 			$estado = $row['estado'];
+			$descricao = strip_tags($row['descricao']);
+			$limite_texto = 200;
+			if (strlen($descricao) > $limite_texto){
+			$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+			$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+			}
 
 			if ($estado == 0){ ?>
 				<div id="arquivado">
@@ -120,9 +125,14 @@ if(isset($_GET['filtro'])){
 			{
 
 				$nome_projeto = $row2['nome'];
-				$descricao = $row2['descricao'];
 				$tipo_ajuda = $row2['tipo_ajuda'];
 				$palavras_chave = $row2['palavras_chave'];
+				$descricao = strip_tags($row2['descricao']);
+				$limite_texto = 200;
+				if (strlen($descricao) > $limite_texto){
+					$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+					$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+				}
 			?>
 				<article class="container card">
 					<h3 class="card-titulo">
@@ -168,9 +178,14 @@ if(isset($_GET['filtro'])){
 			{
 
 				$nome_projeto = $row2['nome'];
-				$descricao = $row2['descricao'];
 				$tipo_ajuda = $row2['tipo_ajuda'];
 				$palavras_chave = $row2['palavras_chave'];
+				$descricao = strip_tags($row2['descricao']);
+				$limite_texto = 200;
+				if (strlen($descricao) > $limite_texto){
+					$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+					$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+				}
 			?>
 				<article class="container card">
 					<h3 class="card-titulo">
@@ -210,9 +225,14 @@ if(isset($_GET['filtro'])){
 
 			$id_projeto = $row['id'];
 			$nome_projeto = $row['nome'];
-			$descricao = $row['descricao'];
 			$tipo_ajuda = $row['tipo_ajuda'];
 			$estado = $row['estado'];
+			$descricao = strip_tags($row['descricao']);
+			$limite_texto = 200;
+			if (strlen($descricao) > $limite_texto){
+				$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+				$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+			}
 
 			if ($estado == 0)
 			{ ?>
@@ -290,9 +310,14 @@ if(isset($_GET['filtro'])){
 			while($row2 = mysqli_fetch_assoc($result2))
 			{
 				$nome_projeto = $row2['nome'];
-				$descricao = $row2['descricao'];
 				$tipo_ajuda = $row2['tipo_ajuda'];
 				$palavras_chave = $row2['palavras_chave'];
+				$descricao = strip_tags($row2['descricao']);
+				$limite_texto = 200;
+				if (strlen($descricao) > $limite_texto){
+					$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+					$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+				}
 			?>
 				<article class="container card">
 					<h3 class="card-titulo">
@@ -344,9 +369,14 @@ if(isset($_GET['filtro'])){
 			{
 
 				$nome_projeto = $row2['nome'];
-				$descricao = $row2['descricao'];
 				$tipo_ajuda = $row2['tipo_ajuda'];
 				$palavras_chave = $row2['palavras_chave'];
+				$descricao = strip_tags($row2['descricao']);
+				$limite_texto = 200;
+				if (strlen($descricao) > $limite_texto){
+					$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
+					$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
+				}
 			?>
 				<article class="container card">
 					<h3 class="card-titulo">

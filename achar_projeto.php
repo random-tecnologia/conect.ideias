@@ -17,10 +17,8 @@ require "db.php";
   $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
   $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
   $filtro_proj=(isset($_GET['filtro']))?($_GET['filtro']):"todos";
-    $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')");
+  $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')");
     
-  
-  
   //Limitar itens(Projetos) por pagina
   $num_itens_pagina = 9;
   $inicio=($num_itens_pagina*$pagina)-$num_itens_pagina;
@@ -30,9 +28,9 @@ require "db.php";
     $row = mysqli_num_rows($resultado_proj);
     $resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%' limit $inicio, $num_itens_pagina");
   }else{
-    $verificar_filtro=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%')");
+    $verificar_filtro=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%' OR tipo_ajuda LIKE 'Todos')");
     $row=mysqli_num_rows($verificar_filtro);
-    $resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%') limit $inicio, $num_itens_pagina");
+    $resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%' OR tipo_ajuda LIKE 'Todos') limit $inicio, $num_itens_pagina");
   }
   $total_paginas=ceil($row/$num_itens_pagina);
   
@@ -60,16 +58,22 @@ require "db.php";
     //procurar busca no banco de dados e filtragem simples pelos botoes "criação e consultoria".
         while(($linha = mysqli_fetch_array($resultado_proj_pagina))){
           $nome_proj = $linha['nome'];
-          $descricao_proj = $linha['descricao'];
+          $descricao_proj = strip_tags($linha['descricao']);
           $id_proj=$linha['id'];
           $tipo_ajuda = $linha['tipo_ajuda'];
+          $limite_texto = 200;
+          if (strlen($descricao_proj) > $limite_texto){
+            $pos_ultimo_espaço = strpos($descricao_proj, ' ', $limite_texto);
+            $descricao_proj = substr($descricao_proj, 0, $pos_ultimo_espaço)."...";
+          }
+        //  strlen($descricao_proj) < $limite_texto ? $descricao_proj : substr(strip_tags($descricao_proj), 0, 200)."...";
 ?>
         <article class="container card">
             <h3 class="card-titulo">
               <a href="descricao.php?id=<?php echo $id_proj; ?>"><?= $nome_proj ?></a>
             </h3>
             <p class="card-descricao">
-              <a href="descricao.php?id=<?php echo $id_proj; ?>"><?= $descricao_proj ?></a>
+              <a href="descricao.php?id=<?php echo $id_proj; ?>"><?= $descricao_proj; ?></a>
             </p>
 
           <div id="tags">
