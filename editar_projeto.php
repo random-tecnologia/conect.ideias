@@ -1,11 +1,4 @@
 <?php
-require "_parsedown.php";
-$Parsedown = new Parsedown();
-
-if (isset($_POST["submit"])) {
-  $descricao = $Parsedown->text($_POST["descricao"]);
-}
-
 $titulo_pagina = "Editar projeto";
 require "_header.php";
 require 'db.php';
@@ -90,17 +83,18 @@ while ($row = mysqli_fetch_assoc($consulta_placeholder))
           Descrição
           <p>Dê mais detalhes sobre sua ideia.</p>
         </label>
-        <textarea name="descricao" required><?= $descricao; ?></textarea>
-        <p class="dica">Você pode estilizar seu texto usando markdown, para saber mais sobre markdown <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">clique aqui</a>.</p>
+        <textarea name="descricao" class="editor-descricao" required><?= $descricao; ?></textarea>
 
-        <label for="proximos_passos">
+        <label for="proximos_passos" class="label-proximos">
           Próximos passos
-          <p>Dê instruções para as pessoas depois que forem aceitas no projeto.</p>
+          <p>Dê instruções para sua equipe à respeito do que fazer após serem aceitas no projeto.</p>
         </label>
-        <textarea name="proximos_passos" required><?= $proximos_passos; ?></textarea>
-        <p class="dica">Você pode estilizar seu texto usando markdown, para saber mais sobre markdown <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">clique aqui</a>.</p>
+        <textarea name="proximos_passos" class="editor-proximos" required><?= $proximos_passos; ?></textarea>
 
-        <label for="palavras_chave">Palavras-chave</label>
+        <label for="palavras_chave">
+          Palavras-chave
+          <p>Separe as palavras por vírgula</p>
+        </label>
         <input type="text" name="palavras_chave" value="<?= $palavras_chave; ?>" required="">
 
         <label for="tipo_ajuda">Tipo de ajuda</label><br>
@@ -197,7 +191,36 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+</script>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '.editor-descricao' ), {
+            heading: {
+                options: [
+                    { modelElement: 'paragraph', title: 'Parágrafo', class: 'ck-heading_paragraph' },
+                    { modelElement: 'heading1', viewElement: 'h3', title: 'Cabeçalho 1', class: 'ck-heading_heading1' },
+                    { modelElement: 'heading2', viewElement: 'h4', title: 'Cabeçalho 2', class: 'ck-heading_heading2' }
+                ]
+            }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '.editor-proximos' ), {
+            heading: {
+                options: [
+                    { modelElement: 'paragraph', title: 'Parágrafo', class: 'ck-heading_paragraph' },
+                    { modelElement: 'heading1', viewElement: 'h3', title: 'Cabeçalho 1', class: 'ck-heading_heading1' },
+                    { modelElement: 'heading2', viewElement: 'h4', title: 'Cabeçalho 2', class: 'ck-heading_heading2' }
+                ]
+            }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 
 <?php require "_footer.php"; ?>
