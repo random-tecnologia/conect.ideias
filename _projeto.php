@@ -13,6 +13,11 @@ if(isset($_GET['id'])){
     exit();
   }
 
+  // Checa se o id do projeto existe
+  if (mysqli_num_rows($result) == 0) {
+    echo "<script>window.history.go(-1)</script>";
+  }
+
   while ($row = mysqli_fetch_assoc($result)) {
 
       $id_2 = $row['id'];

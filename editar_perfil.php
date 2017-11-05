@@ -1,14 +1,7 @@
 <?php
-  require "_parsedown.php";
-  $Parsedown = new Parsedown();
-
-  if (isset($_POST["submit"])) {
-    $descricao = $Parsedown->text($_POST["descricao"]);
-  }
-
-  $titulo_pagina = "Editar perfil";
-  $nome_arquivo = basename(__FILE__, ".php");
-  require "_header.php"; 
+$titulo_pagina = "Editar perfil";
+$nome_arquivo = basename(__FILE__, ".php");
+require "_header.php"; 
 ?>
 
 <div id="titulo-pagina"><h1><?= $titulo_pagina; ?></h1></div>
