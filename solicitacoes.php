@@ -55,7 +55,12 @@ require "_projeto.php";
 					                <a href="perfil.php?id=<?= $id_usuario; ?>" class="identificacao">
 					                	<h3 class="nome"><?= $nome; ?></h3>
 					                	<div class="tipo-ajuda">
-						                	<span><?= $tipo_ajuda; ?></span>
+						                	<?php if ($tipo_ajuda == "Todos") { ?>
+								              <span>Criação</span>
+								              <span>Consultoria</span>
+								            <?php } else { ?>
+								              <span><?= $tipo_ajuda; ?></span>
+								            <?php } ?>
 					                	</div>
 					                </a>
 					                <div class="acoes">
@@ -98,7 +103,12 @@ require "_projeto.php";
 					                <a href="perfil.php?id=<?= $id_usuario; ?>" class="identificacao">
 					                	<h3 class="nome"><?= $nome; ?></h3>
 					                	<div class="tipo-ajuda">
-						                	<span><?= $tipo_ajuda; ?></span>
+						                	<?php if ($tipo_ajuda == "Todos") { ?>
+								              <span>Criação</span>
+								              <span>Consultoria</span>
+								            <?php } else { ?>
+								              <span><?= $tipo_ajuda; ?></span>
+								            <?php } ?>
 					                	</div>
 					                </a>
 					                <div class="acoes">
@@ -143,7 +153,12 @@ require "_projeto.php";
 					                <a href="perfil.php?id=<?= $id_usuario; ?>" class="identificacao">
 					                	<h3 class="nome"><?= $nome; ?></h3>
 					                	<div class="tipo-ajuda">
-						                	<span><?= $tipo_ajuda; ?></span>
+						                	<?php if ($tipo_ajuda == "Todos") { ?>
+								              <span>Criação</span>
+								              <span>Consultoria</span>
+								            <?php } else { ?>
+								              <span><?= $tipo_ajuda; ?></span>
+								            <?php } ?>
 					                	</div>
 					                </a>
 					                <div class="acoes">

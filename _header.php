@@ -30,9 +30,10 @@ $id_usuario = $_SESSION['id_usuario'];
           <?php
             $consulta = mysqli_query($conexao, "SELECT nome, avatar FROM usuarios WHERE id = $id_usuario") or die(mysqli_error());
             while ($usuario = mysqli_fetch_assoc($consulta)) {
+              $nome = explode(" ", $usuario['nome']);
           ?>
-              <img id="avatar" src="<?= $usuario['avatar'] ?>" alt="<?= $usuario['nome'] ?>">
-              <span id="nome"><?= $usuario['nome'] ?></span>
+              <img id="avatar" src="<?= $usuario['avatar'] ?>" alt="<?= $nome[0]; ?>">
+              <span id="nome"><?= $nome[0]; ?></span>
       <?php } ?>
           <img id="seta" src="img/icone.png">
         </div>
