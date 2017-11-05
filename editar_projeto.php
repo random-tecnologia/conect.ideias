@@ -89,10 +89,7 @@ while ($row = mysqli_fetch_assoc($consulta_placeholder))
         </label>
         <textarea name="proximos_passos" class="editor-proximos" required><?= $proximos_passos; ?></textarea>
 
-        <label for="palavras_chave">
-          Palavras-chave
-          <p>Separe as palavras por vírgula</p>
-        </label>
+        <label for="palavras_chave">Palavras-chave</label>
         <input type="text" name="palavras_chave" value="<?= $palavras_chave; ?>" required="">
 
         <label for="tipo_ajuda">Tipo de ajuda</label><br>

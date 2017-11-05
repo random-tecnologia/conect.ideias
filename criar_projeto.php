@@ -54,10 +54,7 @@ if(isset($_POST['submit']))
         </label>
         <textarea name="proximos_passos" class="criar-proximos"></textarea>
 
-        <label for="palavras_chave">
-          Palavras-chave
-          <p>Separe as palavras por vírgula</p>
-        </label>
+        <label for="palavras_chave">Palavras-chave</label>
         <input type="text" name="palavras_chave" required="">
 
         <label for="tipo_ajuda">Tipo de ajuda</label><br>
