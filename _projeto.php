@@ -1,8 +1,5 @@
 <?php
 require 'db.php';
-require "_header.php";
-
-session_start();// starta a session
 
 if(isset($_GET['id'])){
   $id = $_GET['id'];
@@ -20,6 +17,11 @@ if(isset($_GET['id'])){
 
       $id_2 = $row['id'];
       $nome_projeto = $row['nome'];
+
+      // Coloca nome do projeto na aba do navegador
+      $titulo_pagina = $nome_projeto;
+      require "_header.php";
+
       $descricao = $row['descricao'];
       $tipo_ajuda = $row['tipo_ajuda'];
       $estado = $row['estado'];

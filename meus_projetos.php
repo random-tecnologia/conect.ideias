@@ -3,8 +3,6 @@ $titulo_pagina = "Meus projetos";
 $nome_arquivo = basename(__FILE__, ".php");
 require "_header.php";
 require "db.php";
-
-session_start();
 ?>
 
 <div class="wrapper">

@@ -1,5 +1,4 @@
-<?php 
-$titulo_pagina = "Projeto de Desenvolvimento de Software";
+<?php
 $nome_arquivo = basename(__FILE__, ".php");
 require "_projeto.php";
 ?>

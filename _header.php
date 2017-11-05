@@ -1,3 +1,9 @@
+<?php
+require "db.php";
+session_start();
+$id_usuario = $_SESSION['id_usuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,8 +27,13 @@
         </ul>
         <div id="nav-perfil" onclick="toggleDropdown();">
           <div id="separador"></div>
-            <img id="avatar" src="img/avatar_kaique.jpg" alt="Avatar">
-            <span id="nome">Roberto</span>
+          <?php
+            $consulta = mysqli_query($conexao, "SELECT nome, avatar FROM usuarios WHERE id = $id_usuario") or die(mysqli_error());
+            while ($usuario = mysqli_fetch_assoc($consulta)) {
+          ?>
+              <img id="avatar" src="<?= $usuario['avatar'] ?>" alt="<?= $usuario['nome'] ?>">
+              <span id="nome"><?= $usuario['nome'] ?></span>
+      <?php } ?>
           <img id="seta" src="img/icone.png">
         </div>
         <div id="dropdown" class="esconder">

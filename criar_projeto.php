@@ -4,7 +4,6 @@ $nome_arquivo = basename(__FILE__, ".php");
 require "_header.php"; 
 
 require "db.php";
-session_start();
 
 if(isset($_POST['submit']))
 {

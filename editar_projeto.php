@@ -2,8 +2,6 @@
 $titulo_pagina = "Editar projeto";
 require "_header.php";
 require 'db.php';
-session_start();
-
 
 if(isset($_GET['id'])?$_GET['id']:$_POST['id']){
   $id = isset($_GET['id'])?$_GET['id']:$_POST['id'];
