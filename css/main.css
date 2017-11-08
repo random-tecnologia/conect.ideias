@@ -426,6 +426,7 @@ form input, textarea, select {
 	margin-top: 12px;
 	color: white;
 	float: right;
+	border: 0;
 }
 
 /* / / / / / / / / / / / / / / / / / / / / / /
