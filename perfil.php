@@ -2,27 +2,75 @@
 $titulo_pagina = "Roberto Lopes";
 $nome_arquivo = basename(__FILE__, ".php");
 require "_header.php";
+
+$id_usuario = $_SESSION['id_usuario'];
+
+if(isset($_GET['id']) && $_GET['id'] != ""){
+  $id = $_GET['id'];
+  $consulta = "select nome,descricao,avatar,email,telefone from usuarios where id = $id";
+  $resultado = mysqli_query($conexao, $consulta);
+  if (mysqli_num_rows($resultado) == 0){
+    echo "<script>window.history.go(-1)</script>";
+  }
+  while ($row = mysqli_fetch_array($resultado)){// armazena temporariamente os dados do banco
+    $nome = $row['nome'];
+    $desc = $row["descricao"];
+    $ava = $row["avatar"];
+    $tel = $row["telefone"];
+    $email = $row['email'];
+       ?>
+       <div class="wrapper">
+        <img src="<?= $ava; ?>" alt="<?= $nome; ?>" id="avatar-grande">
+        <h1 id="nome-usuario"><?= $nome; ?></h1>
+        <div class="clearfix" style="margin-bottom: 55px;"></div>
+      </div>
+       <section class="container-texto">
+          <div class="wrapper">
+            <h2>Descrição</h2>
+            <?= $desc; ?>
+            <h2>Contato</h2>
+            <ul>
+              <li><?= $email; ?></li>
+              <li><?= $tel; ?></li>
+            </ul>
+          </div>
+        </section>
+
+  <?php
+    }
+}
+
+else{
+$consulta = "select nome, descricao, avatar, email, telefone from usuarios where id = $id_usuario";
+$resultado = mysqli_query($conexao, $consulta);
+  while ($row = mysqli_fetch_array($resultado)){// armazena temporariamente os dados do banco
+    $nome = $row['nome'];
+    $desc = $row["descricao"];
+    $ava = $row["avatar"];
+    $tel = $row["telefone"];
+    $email = $row['email'];
+       ?>
+       <div class="wrapper">
+        <img src="<?= $ava; ?>" alt="<?= $nome; ?>" id="avatar-grande">
+        <h1 id="nome-usuario"><?= $nome; ?></h1>
+        <a href="editar_perfil.php"><button id="btn-editar-perfil" class="btn-primario">Editar perfil</button></a>
+        <div class="clearfix"></div>
+      </div>
+       <section class="container-texto">
+          <div class="wrapper">
+            <h2>Descrição</h2>
+            <?= $desc; ?>
+            <h2>Contato</h2>
+            <ul>
+              <li><?= $email; ?></li>
+              <li><?= $tel; ?></li>
+            </ul>
+          </div>
+        </section>
+
+  <?php
+    }
+}
 ?>
-
-<div class="wrapper">
-  <img src="img/avatar_kaique.jpg" alt="Roberto Lopes" id="avatar-grande">
-  <h1 id="nome-usuario">Roberto Silva</h1>
-  <a href="editar_perfil.php"><button id="btn-editar-perfil" class="btn-primario">Editar perfil</button></a>
-  <div class="clearfix"></div>
-</div>
-
-<section class="container-texto">
-  <div class="wrapper">
-    <h2>Descrição</h2>
-    <p>Esse é um projeto do professor Giovanni de desenvolvimento de software em parceria com alunos de todos os cursos para construir algo inimaginável e que vai mudar vidas e paradigmas de engenharia.</p>
-    <p>Ut elementum tempor molestie. Pellentesque vel lectus iaculis, vestibulum diam ac, aliquam purus. Maecenas eu fringilla magna. Maecenas id tempus purus, vel aliquam quam. Phasellus sapien nibh, pulvinar placerat accumsan ac, mollis vel neque. Morbi ultrices mauris id tortor accumsan luctus. Curabitur nec risus maximus, hendrerit nisi eu, laoreet massa.</p> 
-    <p>Morbi malesuada dolor quis ligula convallis, eget placerat nisl egestas. Cras eget bibendum tellus. Integer sit amet lacus placerat metus aliquam mollis gravida eu est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse pretium lobortis leo, quis euismod felis malesuada non. Quisque tincidunt lacus urna, sit amet blandit nisi suscipit quis. Phasellus porttitor eros elit, vel aliquet mauris porttitor ut. Aenean eu enim a ligula rhoncus tempor sit amet id lorem.</p>
-    <h2>Contato</h2>
-    <ul>
-      <li>robertolopes@servidor.com</li>
-      <li>(61) 95555-5555</li>
-    </ul>
-  </div>
-</section>
 
 <?php require "_footer.php" ?>
