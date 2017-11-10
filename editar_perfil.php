@@ -1,8 +1,8 @@
-<!-- TODO: Validar o arquivo enviado -->
 <?php
 $titulo_pagina = "Editar perfil";
 $nome_arquivo = basename(__FILE__, ".php");
 require "_header.php"; 
+require "_bulletproof.php";
 ?>
 
 <?php
@@ -11,52 +11,40 @@ if(isset($_POST["submit"])){ // comando abaixo significa que só será executado
   $nome = $_POST["nome"];
   $descricao = $_POST["descricao"];
   $telefone = $_POST["telefone"];
-  
-  if(isset($_FILES['avatar'])) {
-    $erros     = array();
-    $tam_max    = 2097152;
-    $aceitaveis = array(
-        'application/pdf',
-        'image/jpeg',
-        'image/jpg',
-        'image/gif',
-        'image/png'
-    );
 
-    $avatar = "avatar/".$_FILES['avatar']['name']; 
+  $image = new Bulletproof\Image($_FILES);
+  $image->setSize(0, 50000);
+  $image->setMime(array('jpeg', 'png'));  
+  $image->setLocation("avatar");  
 
-    if(($_FILES['avatar']['size'] >= $tam_max) || ($_FILES["avatar"]["size"] == 0)) {
-        $errors[] = 'Arquivo muito grande. Seu avatar deve ter menos que 2mb.';
-    }
-
-    else if((!in_array($_FILES['avatar']['type'], $aceitaveis)) && (!empty($_FILES["avatar"]["type"]))) {
-        $errors[] = 'Formato de arquivo inválido. Apenas os tipos: PDF, JPG, GIF e PNG são aceitos.';
-    }
-
-    if(count($errors) === 0) {
-        move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
-    } else {
-        foreach($erros as $erro) {
-            echo '<script>alert("'.$erro.'");</script>';
-        }
-
-        die();
-    }
+  if($image["avatar"]){
+      $avatar = $image->upload(); 
+      if($avatar){
+        $avatar_caminho = $avatar->getFullPath();
+        $sem_arquivo = false;
+      }else{
+          if ($image["error"] == "No file"){
+            $sem_arquivo = true;
+          } else {
+            echo $image["error"];
+          } 
+      }
   }
-
-  $consulta2 = "update usuarios set nome = '$nome', descricao = '$descricao' , telefone ='$telefone', avatar='$avatar' where id = $id_usuario";
-  $resultado = mysqli_query($conexao, $consulta2) or die(mysqli_error());
-  header("Location: perfil.php");
-  exit();
+  if ($sem_arquivo){
+    $consulta2 = "update usuarios set nome = '$nome', descricao = '$descricao' , telefone ='$telefone' where id = $id_usuario";
+  } else {
+    $consulta2 = "update usuarios set nome = '$nome', descricao = '$descricao' , telefone ='$telefone', avatar='$avatar_caminho' where id = $id_usuario";
+  }
+  mysqli_query($conexao, $consulta2) or die(mysqli_error());
+  header('Location: perfil.php');
 }
 
-$consulta = "select nome, descricao , telefone, avatar from usuarios where id like $id_usuario";//seleciona de onde vc quer tirar os dados
+$consulta = "select nome, descricao , telefone from usuarios where id like $id_usuario";//seleciona de onde vc quer tirar os dados
 $resultado = mysqli_query($conexao, $consulta);//faz a consulta e armazena num array
 while ($row = mysqli_fetch_array($resultado)){// armazena temporariamente os dados do banco
   $nome = $row['nome'];
   $descricao = $row['descricao'];
   $telefone = $row['telefone'];
-  $avatar = $row['avatar'];
 ?>
 
 <div id="titulo-pagina"><h1><?= $titulo_pagina; ?></h1></div>
@@ -71,8 +59,8 @@ while ($row = mysqli_fetch_array($resultado)){// armazena temporariamente os dad
       </label>
       <textarea id="descricao" name="descricao" class="editor-perfil" required><?=$descricao; ?></textarea>
       <label for="avatar">Avatar</label>
-      <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-      <input type="file" name="avatar" class="inputfile" value="<?= $avatar ?>" required>
+      <input type="hidden" name="MAX_FILE_SIZE" value="500000"/>
+      <input type="file" name="avatar" class="inputfile" value="avatar/placeholder-avatar.png" accept="image/*">
       <label for="telefone">Telefone</label>
       <input type="text" name="telefone" value="<?= $telefone; ?>" required="">
       <input class="btn-primario" type="submit" name="submit" value="Salvar">

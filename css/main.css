@@ -228,6 +228,10 @@ form input, textarea, select {
 	line-height: 28px;
 }
 
+#dropdown ul li a, #dropdown ul li a:hover {
+	border-bottom: 0;
+}
+
 #unifica-menu {
 	width: 158px;
 	background-color: white;
@@ -241,8 +245,7 @@ form input, textarea, select {
 ///////////////////////////// */
 
 #criar_projeto #criar_projeto, #achar_projeto #achar_projeto,
-#meus_projetos #meus_projetos, #notificacoes #notificacoes, #perfil #perfil,
-#conta #conta, #descricao #descricao, #proximos_passos #proximos_passos,
+#meus_projetos #meus_projetos, #notificacoes #notificacoes, #descricao #descricao, #proximos_passos #proximos_passos,
 #solicitacoes #solicitacoes, #equipe #equipe {
 	color: #10bfe8;
 	padding-bottom: 5px;
