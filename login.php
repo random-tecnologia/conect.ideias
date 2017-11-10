@@ -24,7 +24,7 @@ include("loginserv.php");
           <label for="senha">Senha</label>
           <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" name="senha" required>
         </div>
-        <a href="#">Esqueci a senha</a><br>
+        <a href="forgotu.php">Esqueci a senha</a><br>
         <button type="submit" class="btn btn-primary" name="submit">Entrar</button>
         <a href="cadastro.php" class="btn btn-secondary">Cadastre-se</a>
       </form>
