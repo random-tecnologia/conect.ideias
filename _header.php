@@ -1,7 +1,10 @@
 <?php
-require "db.php";
 session_start();
+if ($_SESSION['id_usuario'] == ''){
+  header('Location: login.php');
+}
 $id_usuario = $_SESSION['id_usuario'];
+require "db.php";
 ?>
 
 <!DOCTYPE html>
