@@ -1,8 +1,6 @@
 <?php  
 
-require "db.php";
-
-session_start();
+require "_header.php";
 
 if(isset($_GET['id'])){
 
@@ -31,6 +29,9 @@ if(isset($_GET['id'])){
 				exit();
 			}
 
+			// Cria notificação
+			$consulta_not = "INSERT INTO notificacoes(id_usuario,id_projeto,tipo) VALUES ($id_usuario,$id_projeto,'2')";	
+			$result_not = mysqli_query($conexao,$consulta_not) or die(mysqli_error());
 		}
 
 		$consulta3 = "DELETE FROM solicitacoes WHERE id_projeto = $id AND id_usuario = $id_usuario";

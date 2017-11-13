@@ -5,6 +5,13 @@ if ($_SESSION['id_usuario'] == ''){
 }
 $id_usuario = $_SESSION['id_usuario'];
 require "db.php";
+
+// Checa novas notificações
+$checa_not = mysqli_query($conexao, "SELECT id FROM notificacoes WHERE id_usuario = $id_usuario") or die(mysqli_error());
+if (mysqli_num_rows($checa_not) > 0) {
+  $marcador = "bola-notificacao";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +33,7 @@ require "db.php";
           <li><a id="criar_projeto" href="criar_projeto.php">Criar projeto</a></li>
           <li><a id="achar_projeto" href="achar_projeto.php">Achar projeto</a></li>
           <li><a id="meus_projetos" href="meus_projetos.php">Meus projetos</a></li>
-          <li><a id="notificacoes" id="bola-notificacao" href="notificacoes.php">Notificações</a></li>
+          <li><a id="notificacoes" class="<?= $marcador; ?>" href="notificacoes.php">Notificações</a></li>
         </ul>
         <div id="nav-perfil" onclick="toggleDropdown();">
           <div id="separador"></div>

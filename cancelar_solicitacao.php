@@ -1,8 +1,6 @@
 <?php  
 
-require "db.php";
-
-session_start();
+require "_header.php";
 
 if(isset($_GET['id'])){
 	

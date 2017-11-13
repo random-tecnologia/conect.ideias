@@ -1,6 +1,6 @@
 <?php
 
-require 'db.php';
+require '_header.php';
 
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
