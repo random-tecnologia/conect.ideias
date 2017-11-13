@@ -58,7 +58,7 @@ if(isset($_POST["submit"])){ // comando abaixo significa que só será executado
         <div class="modal-content">
           <span class="close">&times;</span>
           <div class="clearfix"></div>
-          <p>Tem certeza que deseja excluir esse projeto?</p>
+          <p>Tem certeza que deseja excluir sua conta?</p>
           <div class="acoes">
       <?php  
 

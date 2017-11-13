@@ -1,3 +1,28 @@
+<?php
+require "db.php";
+
+session_start();
+
+if (isset($_POST['submit'])){
+  $nome = $_POST['nome'];
+  $email = $_POST['email'];
+  $senha = $_POST['senha'];
+
+  $consulta = mysqli_query($conexao, "SELECT email FROM usuarios WHERE email = '$email'");
+  if (mysqli_num_rows($consulta) != 0){
+    echo "E-mail já registrado";
+  } else {
+    $consulta = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, senha, avatar) VALUES ('$nome', '$email', '$senha', 'avatar/placeholder-avatar.png')");
+    $consulta_id = mysqli_query($conexao, "SELECT id FROM usuarios WHERE email = '$email'");
+    while ($row = mysqli_fetch_array($consulta_id)) {
+      $_SESSION['id_usuario'] = $row['id'];
+      header('location: editar_perfil.php');
+    }    
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +42,7 @@
     <div class="bg">
       <img id="logo-entrar" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
       <section class="container container-cadastro">
-        <form class="formulario-entrar" action="" method="post">
+        <form class="formulario-entrar" action="cadastro.php" method="post">
           <h1>Cadastre-se</h1>
             <p>Já tem conta? <a href="login.php">Clique aqui para entrar.</a></p>
           <input type="text" name="nome" placeholder="Nome" required>
