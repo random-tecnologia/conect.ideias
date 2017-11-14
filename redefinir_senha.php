@@ -1,3 +1,11 @@
+<?php
+
+if (isset($_SESSION['id_usuario'])) {
+  header('Location: meus_projetos.php');
+  exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

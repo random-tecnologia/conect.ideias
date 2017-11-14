@@ -1,7 +1,11 @@
 <?php
 require "db.php";
-
 session_start();
+
+if (isset($_SESSION['id_usuario'])) {
+  header('Location: meus_projetos.php');
+  exit();
+}
 
 if (isset($_POST['submit'])){
   $nome = $_POST['nome'];
