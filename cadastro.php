@@ -6,7 +6,7 @@ session_start();
 if (isset($_POST['submit'])){
   $nome = $_POST['nome'];
   $email = $_POST['email'];
-  $senha = $_POST['senha'];
+  $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
   $consulta = mysqli_query($conexao, "SELECT email FROM usuarios WHERE email = '$email'");
   if (mysqli_num_rows($consulta) != 0){

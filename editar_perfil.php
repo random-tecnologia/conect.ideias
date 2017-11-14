@@ -57,7 +57,7 @@ while ($row = mysqli_fetch_array($resultado)){// armazena temporariamente os dad
         Descrição
         <p>Dê mais detalhes sobre você para que possam te escolher.</p>
       </label>
-      <textarea id="descricao" name="descricao" class="editor-perfil" required><?=$descricao; ?></textarea>
+      <textarea id="descricao" name="descricao" class="editor-perfil"><?=$descricao; ?></textarea>
       <label for="avatar">Avatar</label>
       <input type="hidden" name="MAX_FILE_SIZE" value="500000"/>
       <input type="file" name="avatar" class="inputfile" value="avatar/placeholder-avatar.png" accept="image/*">

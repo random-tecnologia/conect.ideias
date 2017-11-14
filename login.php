@@ -9,22 +9,21 @@ if(isset($_POST['submit'])){
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 
+	$consulta = "SELECT id, senha FROM usuarios WHERE email = '$email'";
+	$result = mysqli_query($conexao,$consulta) or die(mysqli_error());
 
-	$verifica = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
+  $row = mysqli_fetch_assoc($result);
+	$id_usuario = $row['id'];
+  $senha_hashed = $row['senha'];
 
-	$result = mysqli_query($conexao,$verifica);
-
-	if(!$result){
-		die("query failed");
-	}
-  while ($row = mysqli_fetch_assoc($result)) {
-
-  		$id_usuario = $row['id'];
-
-  		if(!isset($_SESSION['id_usuario'])){
-  		  $_SESSION['id_usuario'] = $id_usuario;
-        header('location: meus_projetos.php');
-  		}
+  if (password_verify($senha, $senha_hashed)){
+    if(!isset($_SESSION['id_usuario'])){
+      $_SESSION['id_usuario'] = $id_usuario;
+      header('location: meus_projetos.php');
+    }
+  }else {
+    echo "Senha incorreta!";
+    die();
   }
 }
 
