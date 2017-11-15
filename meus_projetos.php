@@ -3,6 +3,35 @@ $titulo_pagina = "Meus projetos";
 $nome_arquivo = basename(__FILE__, ".php");
 require "_header.php";
 require "db.php";
+
+function printaErro(){
+	echo "<div class=\"wrapper\">
+			    <div class=\"sem-resultados\">
+			        <h2>Você não tem nem participa de algum projeto</h2>
+			        <p><a href=\"criar_projeto.php\">Crie um novo</a> ou <a href=\"criar_projeto.php\">ache um projeto</a> para fazer parte.</p>
+			    </div>
+			</div>";
+}
+
+if (isset($_GET['filtro'])) {
+	$filtro = $_GET['filtro'];
+	$id_dono = $_SESSION['id_usuario'];
+	$id_usuario = $id_dono;
+
+	$consulta = "SELECT * FROM projetos WHERE id_dono = $id_dono";
+	$consulta_sol = "SELECT * FROM solicitacoes WHERE id_usuario = $id_usuario";
+	$consulta_part = "SELECT * FROM usuarios_projetos WHERE id_usuario = $id_usuario";
+
+	$result = mysqli_query($conexao,$consulta) or die(mysqli_error());
+	$result_sol = mysqli_query($conexao, $consulta_sol) or die(mysqli_error());
+	$result_part = mysqli_query($conexao, $consulta_part) or die(mysqli_error());
+
+	if (mysqli_num_rows($result) == 0 AND mysqli_num_rows($result_sol) == 0 AND mysqli_num_rows($result_part) == 0 ) {
+		printaErro();
+		die();
+	}
+}
+	
 ?>
 
 <div class="wrapper">
@@ -37,15 +66,6 @@ if(isset($_GET['filtro'])){
 
 		$consulta = "SELECT * FROM projetos WHERE id_dono = $id_dono";
 		$result = mysqli_query($conexao,$consulta);
-
-		if (mysqli_num_rows($result) == 0) { ?>
-			<div class="wrapper">
-			    <div class="sem-resultados">
-			        <h2>Você não tem nem participa de nenhum projeto</h2>
-			        <p><a href="criar_projeto.php">Crie um novo</a> ou <a href="criar_projeto.php">ache um projeto</a> para fazer parte.</p>
-			    </div>
-			</div>
-<?php	}
 
 		if(!$result){
 			die(mysqli_error());

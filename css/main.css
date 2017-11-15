@@ -960,7 +960,7 @@ form input, textarea, select {
 #paginas ul li a:hover {
 	color: #10bfe8;
 	padding-bottom: 5px;
-	border-bottom: 2px solid #10bfe8;
+	border-bottom: 1px solid #10bfe8;
 }
 
 #heading a button, #heading input[type="submit"] {

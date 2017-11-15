@@ -3,6 +3,10 @@ $nome_arquivo = basename(__FILE__, ".php");
 require "_projeto.php";
 
 if (isset($_GET['id'])) {
+	if ($_GET['filtro'] == "") {
+		header("Location: solicitacoes.php?id={$_GET['id']}&filtro=todos");
+		exit();
+	}
 	$consulta = "SELECT * FROM solicitacoes WHERE id_projeto = $id";
 	$result  = mysqli_query($conexao,$consulta);
 	$row = mysqli_num_rows($result);
@@ -13,8 +17,6 @@ if (isset($_GET['id'])) {
 	    </div>
 	  </div>
 <?php	} else { ?>
-?>
-
 <div class="wrapper">
     <div class="filtro filtro-equipe">
           <ul>
