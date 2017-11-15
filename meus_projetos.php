@@ -37,6 +37,16 @@ if(isset($_GET['filtro'])){
 
 		$consulta = "SELECT * FROM projetos WHERE id_dono = $id_dono";
 		$result = mysqli_query($conexao,$consulta);
+
+		if (mysqli_num_rows($result) == 0) { ?>
+			<div class="wrapper">
+			    <div class="sem-resultados">
+			        <h2>Você não tem nem participa de nenhum projeto</h2>
+			        <p><a href="criar_projeto.php">Crie um novo</a> ou <a href="criar_projeto.php">ache um projeto</a> para fazer parte.</p>
+			    </div>
+			</div>
+<?php	}
+
 		if(!$result){
 			die(mysqli_error());
 		}

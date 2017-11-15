@@ -6,12 +6,21 @@ $id_usuario = $_SESSION['id_usuario'];
 ?>
 
 <div id="titulo-pagina"><h1><?= $titulo_pagina; ?></h1></div>
+<?php
+        $consulta = "SELECT * FROM notificacoes WHERE id_usuario = $id_usuario";
+        $resultado_not = mysqli_query($conexao, $consulta);
+        $row = mysqli_num_rows($resultado_not);
+        if($row == 0){ ?>
+          <div class="wrapper">
+            <div class="sem-resultados">
+                <h2>Você não tem novas notificações</h2>
+            </div>
+          </div>
+        <?php } else { ?>
 <div class="wrapper">
     <section class="container container-lista">
         <ul>
     <?php
-        $consulta = "SELECT * FROM notificacoes WHERE id_usuario = $id_usuario";
-        $resultado_not = mysqli_query($conexao, $consulta);
         while ($notificacao = mysqli_fetch_assoc($resultado_not))
         {
             $id_not = $notificacao['id'];
@@ -48,5 +57,7 @@ $id_usuario = $_SESSION['id_usuario'];
         </ul>
     </section>
 </div>
+
+<?php } ?>
 
 <?php require "_footer.php" ?>

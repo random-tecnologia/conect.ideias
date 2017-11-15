@@ -856,6 +856,22 @@ form input, textarea, select {
 	padding: 15px 35px;
 }
 
+.sem-resultados {
+	margin-top: 120px;
+	text-align: center;
+}
+
+.sem-resultados h2 {
+	font-size: 1.750em;
+	color: #bababa;
+	font-weight: 500;
+	padding-bottom: 20px;
+}
+
+.sem-resultados p {
+	color: #bababa;
+}
+
 /* / / / / / / / / / / / / / /
 / /  PÁGINA: Notificações / /
 / / / / / / / / / / / / / */

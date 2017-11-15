@@ -13,6 +13,11 @@
 <?php
 require "db.php";
 
+if (!isset($_GET['buscaproj'])) {
+  // TODO: Mostrar projetos recentes
+  echo "";
+} else {
+
 //*Buscar projetos
   $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
   $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
@@ -33,12 +38,14 @@ require "db.php";
     $resultado_proj_pagina=mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')&&(tipo_ajuda LIKE '%$filtro_proj%' OR tipo_ajuda LIKE 'Todos') limit $inicio, $num_itens_pagina");
   }
   $total_paginas=ceil($row/$num_itens_pagina);
-  
-  
-    //definir numero de resultados encontrados incluindo o filtro
-  if(isset($_GET['buscaproj'])==""){
-    
-    } else {
+ 
+  if($row == 0){ ?>
+  <div class="wrapper">
+    <div class="sem-resultados">
+        <h2>Sua busca não retornou resultados</h2>
+    </div>
+  </div>
+<?php } else {
 ?>
   <div class="wrapper">
       <section class="heading">
@@ -86,8 +93,6 @@ require "db.php";
           </div>
           <a class="saiba-mais" href="descricao.php?id=<?php echo $id_proj; ?>">SAIBA MAIS</a>
         </article>
-    
-
 <?php
       }
 ?>
@@ -140,6 +145,6 @@ require "db.php";
         </li>
       </ul>
     </nav>
-    <?php } ?>
+    <?php } } ?>
           
 <?php require "_footer.php" ?>

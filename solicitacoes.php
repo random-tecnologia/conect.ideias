@@ -1,6 +1,18 @@
 <?php
 $nome_arquivo = basename(__FILE__, ".php");
 require "_projeto.php";
+
+if (isset($_GET['id'])) {
+	$consulta = "SELECT * FROM solicitacoes WHERE id_projeto = $id";
+	$result  = mysqli_query($conexao,$consulta);
+	$row = mysqli_num_rows($result);
+	if($row == 0){ ?>
+	  <div class="wrapper">
+	    <div class="sem-resultados">
+	        <h2>Seu projeto ainda não tem solicitações</h2>
+	    </div>
+	  </div>
+<?php	} else { ?>
 ?>
 
 <div class="wrapper">
@@ -28,6 +40,7 @@ require "_projeto.php";
 
 						$consulta = "SELECT id_usuario, tipo_ajuda FROM solicitacoes WHERE id_projeto = $id";
 						$result  = mysqli_query($conexao,$consulta);
+
 						if(!$result){
 							die(mysqli_error());
 						}
@@ -171,15 +184,13 @@ require "_projeto.php";
 						}
 					}
 				}
-
-				else{
-					header("location: solicitacoes.php?id=$id&filtro=todos");
-				}
 			}
 			else{
 				echo "<script>window.history.go(-1)</script>";
 				exit();
 			}
+		}
+	}
 
 			?>
 		        </ul>
