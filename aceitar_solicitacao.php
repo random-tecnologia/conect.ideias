@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 		$consulta = "SELECT tipo_ajuda FROM solicitacoes WHERE id_projeto = $id AND id_usuario = $id_usuario";
 		$result  = mysqli_query($conexao,$consulta);
 		if(!$result){
-			header('Location: ler_projetos.php');
+			header('Location: meus_projetos.php');
 			exit();
 		}
 
@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
 			$consulta2 .= "VALUES ($id_usuario, $id_projeto, '$tipo_ajuda')";
 			$result2 = mysqli_query($conexao,$consulta2);
 			if(!$result2){
-				header('Location: ler_projetos.php');
+				header('Location: meus_projetos.php');
 				exit();
 			}
 
@@ -37,7 +37,7 @@ if(isset($_GET['id'])){
 		$consulta3 = "DELETE FROM solicitacoes WHERE id_projeto = $id AND id_usuario = $id_usuario";
 		$result3 = mysqli_query($conexao,$consulta3);
 			if(!$result3){
-				header('Location: ler_projetos.php');
+				header('Location: meus_projetos.php');
 				exit();
 			}
 

@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 
   $result = mysqli_query($conexao, $consulta);
   if(!$result){
-    header('Location: ler_projetos.php');
+    header('Location: meus_projetos.php');
     exit();
   }
 

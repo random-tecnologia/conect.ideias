@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 	$proximos_passos = $_POST['proximos_passos'];
 	$palavras_chave = $_POST['palavras_chave'];
 	$tipo_ajuda = $_POST['tipo_ajuda'];
-	$criado_em = date("d/m/Y");
+	$criado_em = date("Y-m-d");
 	$id_dono = $_SESSION['id_usuario'];
 	
 	$consulta = "INSERT INTO projetos (nome, descricao, proximos_passos, estado, palavras_chave, tipo_ajuda, criado_em, id_dono) VALUES ('$nome', '$descricao', '$proximos_passos', 1, '$palavras_chave', '$tipo_ajuda', '$criado_em',$id_dono)";

@@ -8,7 +8,7 @@ function printaErro(){
 	echo "<div class=\"wrapper\">
 			    <div class=\"sem-resultados\">
 			        <h2>Você não tem nem participa de algum projeto</h2>
-			        <p><a href=\"criar_projeto.php\">Crie um novo</a> ou <a href=\"criar_projeto.php\">ache um projeto</a> para fazer parte.</p>
+			        <p><a href=\"criar_projeto.php\">Crie um novo</a> ou <a href=\"achar_projeto.php\">ache um projeto</a> para fazer parte.</p>
 			    </div>
 			</div>";
 }
