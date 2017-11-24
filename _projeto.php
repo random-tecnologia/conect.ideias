@@ -31,9 +31,16 @@ if(isset($_GET['id'])){
       $tipo_ajuda = $row['tipo_ajuda'];
       $estado = $row['estado'];
       $id_dono = $row['id_dono'];
-      if($estado != 1){
-        echo "Projeto Arquivado"."<br/>";
-      }
+      if($estado != 1){ ?>
+      <div class="aviso aviso-arquivado">
+        <div class="wrapper">
+          <h2>Projeto arquivado</h2>
+          <div class="texto">
+            <p>Esse projeto não está mais aceitando solicitações, parabéns por fazer parte da equipe</p>
+          </div>
+        </div>
+      </div>
+      <?php }
       // verifica se o usuario e dono do projeto 
       if($id_dono==$_SESSION['id_usuario']){  ?>
         <div class="wrapper">

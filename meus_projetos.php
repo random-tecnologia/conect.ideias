@@ -156,6 +156,7 @@ if(isset($_GET['filtro'])){
 
 				$nome_projeto = $row2['nome'];
 				$tipo_ajuda = $row2['tipo_ajuda'];
+				$estado = $row2['estado'];
 				$palavras_chave = $row2['palavras_chave'];
 				$descricao = strip_tags($row2['descricao']);
 				$limite_texto = 200;
@@ -163,6 +164,29 @@ if(isset($_GET['filtro'])){
 					$pos_ultimo_espaço = strpos($descricao, ' ', $limite_texto);
 					$descricao = substr($descricao, 0, $pos_ultimo_espaço)."...";
 				}
+
+				if ($estado == 0){ ?>
+				<div id="arquivado">
+		          <article class="container card">
+					<h3 class="card-titulo">
+		                <a href="descricao.php?id=<?= $id_projeto; ?>"><?= $nome_projeto; ?></a>
+					</h3>
+					<p class="card-descricao">
+						<a href="descricao.php?id=<?= $id_projeto; ?>"><?= $descricao; ?></a>
+					</p>
+		            <div id="tags">
+			            <?php if ($tipo_ajuda == "Todos") { ?>
+			              <span><a href="#1">Criação</a></span>
+			              <span><a href="#2">Consultoria</a></span>
+			            <?php } else { ?>
+			              <span><a href="#2"><?= $tipo_ajuda; ?></a></span>
+			            <?php } ?>
+					</div>
+					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
+		        </article>
+		        </div>
+
+	<?php	} else {
 			?>
 				<article class="container card">
 					<h3 class="card-titulo">
@@ -181,7 +205,7 @@ if(isset($_GET['filtro'])){
 					</div>
 					<a class="saiba-mais" href="descricao.php?id=<?= $id_projeto; ?>">SAIBA MAIS</a>
 		        </article>
-        <?php
+        <?php }
 			}
 
 		}

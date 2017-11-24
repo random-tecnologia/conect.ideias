@@ -26,9 +26,20 @@ if(isset($_POST['submit'])){
       $_SESSION['id_usuario'] = $id_usuario;
       header('location: meus_projetos.php');
     }
-  }else {
-    echo "Senha incorreta!";
-    die();
+  }else if (!password_verify($senha, $senha_hashed) || mysqli_num_rows($result) == 0) {
+  ?>
+    <div class="aviso erro aviso-entrar">
+      <div class="wrapper">
+        <h2>Erro ao entrar</h2>
+        <div class="texto">
+          <ul>
+            <?= mysqli_num_rows($result) == 0 ?  "<li>E-mail não cadastrado</li>" : "" ?>
+            <?= !password_verify($senha, $senha_hashed) ?  "<li>Senha incorreta</li>" : "" ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <?php
   }
 }
 
@@ -44,17 +55,6 @@ if(isset($_POST['submit'])){
   <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
 </head>
 <body>
-  <!-- <div class="aviso erro aviso-entrar">
-    <div class="wrapper">
-      <h2>Erro ao entrar</h2>
-      <div class="texto">
-        <ul>
-          <li>Esse e-mail não foi cadastrado no nosso sistema</li>
-          <li>Sua senha não confere</li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
   <div class="bg">
     <img id="logo-entrar" src="img/logo_branco.png" alt="Logomarca Conect.Ideias">
     <section class="container container-cadastro">
