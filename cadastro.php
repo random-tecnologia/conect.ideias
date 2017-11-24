@@ -8,8 +8,8 @@ if (isset($_SESSION['id_usuario'])) {
 }
 
 if (isset($_POST['submit'])){
-  $nome = $_POST['nome'];
-  $email = $_POST['email'];
+  $nome = stripslashes(htmlspecialchars($_POST['nome']));
+  $email = stripslashes(htmlspecialchars($_POST['email']));
   $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
   $consulta = mysqli_query($conexao, "SELECT email FROM usuarios WHERE email = '$email'");

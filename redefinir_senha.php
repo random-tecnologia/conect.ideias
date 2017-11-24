@@ -5,6 +5,8 @@ if (isset($_SESSION['id_usuario'])) {
   exit();
 }
 
+// stripslashes(htmlspecialchars($_POST['senha']));
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -11,7 +11,7 @@ if (isset($_SESSION['id_usuario'])) {
 
 if(isset($_POST['submit'])){
 
-	$email = $_POST['email'];
+	$email = stripslashes(htmlspecialchars($_POST['email']));
 	$senha = $_POST['senha'];
 
 	$consulta = "SELECT id, senha FROM usuarios WHERE email = '$email'";

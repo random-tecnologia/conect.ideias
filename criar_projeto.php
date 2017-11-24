@@ -7,10 +7,10 @@ require "db.php";
 
 if(isset($_POST['submit']))
 {
-	$nome = $_POST['nome'];
-	$descricao = $_POST['descricao'];
-	$proximos_passos = $_POST['proximos_passos'];
-	$palavras_chave = $_POST['palavras_chave'];
+	$nome = stripslashes(htmlspecialchars($_POST['nome']));
+	$descricao = htmlspecialchars($_POST['descricao']);
+	$proximos_passos = htmlspecialchars($_POST['proximos_passos']);
+	$palavras_chave = stripslashes(htmlspecialchars($_POST['palavras_chave']));
 	$tipo_ajuda = $_POST['tipo_ajuda'];
 	$criado_em = date("Y-m-d");
 	$id_dono = $_SESSION['id_usuario'];

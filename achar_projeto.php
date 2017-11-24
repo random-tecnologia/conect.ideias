@@ -134,7 +134,7 @@ if (!isset($_GET['buscaproj'])) {
 
 //*Buscar projetos
   $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
-  $buscar_projeto = isset($_GET['buscaproj'])?($_GET['buscaproj']):0;
+  $buscar_projeto = isset($_GET['buscaproj'])?stripslashes(htmlspecialchars($_GET['buscaproj'])):0;  
   $filtro_proj=(isset($_GET['filtro']))?($_GET['filtro']):"todos";
   $resultado_proj = mysqli_query($conexao,"SELECT * FROM projetos WHERE (nome LIKE '%$buscar_projeto%' or palavras_chave LIKE '%$buscar_projeto%')");
     

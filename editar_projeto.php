@@ -26,10 +26,10 @@ if(isset($_GET['id'])?$_GET['id']:$_POST['id']){
 
   if(isset($_POST['submit']))
   {
-    $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $proximos_passos = $_POST['proximos_passos'];
-    $palavras_chave = $_POST['palavras_chave'];
+    $nome = stripslashes(htmlspecialchars($_POST['nome']));
+    $descricao = htmlspecialchars($_POST['descricao']);
+    $proximos_passos = htmlspecialchars($_POST['proximos_passos']);
+    $palavras_chave = stripslashes(htmlspecialchars($_POST['palavras_chave']));
     $tipo_ajuda = $_POST['tipo_ajuda'];
 
     $consulta = "UPDATE projetos SET nome='{$nome}',descricao='{$descricao}',proximos_passos='{$proximos_passos}',palavras_chave='{$palavras_chave}', tipo_ajuda='{$tipo_ajuda}' WHERE id = {$id} ";

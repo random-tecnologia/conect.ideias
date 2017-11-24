@@ -8,9 +8,9 @@ require "_bulletproof.php";
 <?php
 if(isset($_POST["submit"])){ // comando abaixo significa que só será executado se houver preenchimento do campo submit
   
-  $nome = $_POST["nome"];
-  $descricao = $_POST["descricao"];
-  $telefone = $_POST["telefone"];
+  $nome = stripslashes(htmlspecialchars($_POST['nome']));
+  $descricao = htmlspecialchars($_POST['descricao']);
+  $telefone = stripslashes(htmlspecialchars($_POST['telefone']));
 
   $image = new Bulletproof\Image($_FILES);
   $image->setSize(0, 50000);
